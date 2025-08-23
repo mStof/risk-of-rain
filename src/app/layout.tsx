@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Chakra_Petch, Major_Mono_Display } from "next/font/google";
 import "./globals.css";
+// import cursosBase from "@public/cursos-base.svg"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const chakraPetch = Chakra_Petch({
+  variable: "--font-chakra-petch",
   subsets: ["latin"],
+  weight: ["300", "400"],
+
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const majorMonoDisplay = Major_Mono_Display({
+  variable: "--font-major-mono-display",
   subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased cursor-(--cursor-base) ` }
       >
         {children}
       </body>
