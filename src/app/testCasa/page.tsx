@@ -2,7 +2,7 @@ import Spline from "@splinetool/react-spline/next";
 
 export default function Home() {
   return (
-    <main className="bg-neutral-bg bg-(image:--bg-pattern) flex flex-col items-center justify-center h-screen overflow-hidden">
+    <main className="flex flex-col items-center justify-center h-screen overflow-hidden">
       <div className="flex items-center justify-center overflow-hidden isolate size-fit">
         <Spline         scene="https://prod.spline.design/F254ERfwBPnLrtkv/scene.splinecode" 
 />
