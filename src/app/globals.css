@@ -8,51 +8,65 @@
   --bg-pattern: url('/bg-pattern.svg');
 }
 
-  @theme {
-    --color-primary-01: rgba(57, 86, 219, 1);
-    --color-primary-02: rgba(77, 103, 223, 1);
-    --color-primary-03: rgba(97, 120, 226, 1);
-    --color-primary-04: rgba(116, 137, 230, 1);
-    --color-primary-05: rgba(136, 154, 233, 1);
-    --color-primary-06: rgba(156, 170, 237, 1);
-    --color-primary-07: rgba(176, 187, 241, 1);
-    --color-primary-08: rgba(196, 204, 244, 1);
-    --color-primary-09: rgba(215, 221, 248, 1);
-    --color-primary-10: rgba(235, 238, 251, 1);
-    --color-secondary-01: rgba(219, 179, 58, 1);
-    --color-secondary-02: rgba(223, 187, 78, 1);
-    --color-secondary-03: rgba(226, 194, 97, 1);
-    --color-secondary-04: rgba(230, 202, 117, 1);
-    --color-secondary-05: rgba(233, 209, 137, 1);
-    --color-secondary-06: rgba(237, 217, 156, 1);
-    --color-secondary-07: rgba(241, 225, 176, 1);
-    --color-secondary-08: rgba(244, 232, 196, 1);
-    --color-secondary-09: rgba(248, 240, 216, 1);
-    --color-secondary-10: rgba(251, 247, 235, 1);
-    --color-neutral-01: rgba(80, 89, 134, 1);
-    --color-neutral-02: rgba(156, 136, 79, 1);
-    --color-neutral-03: rgba(92, 86, 70, 1);
-    --color-neutral-bg: rgba(1, 1, 1, 1);
-    --color-neutral-04-01: rgba(45, 46, 51, 1);
-    --color-neutral-04-02: rgba(66, 67, 71, 1);
-    --color-neutral-04-03: rgba(87, 88, 92, 1);
-    --color-neutral-04-04: rgba(108, 109, 112, 1);
-    --color-neutral-04-05: rgba(129, 130, 133, 1);
-    --color-neutral-04-06: rgba(150, 150, 153, 1);
-    --color-neutral-04-07: rgba(171, 171, 173, 1);
-    --color-neutral-04-08: rgba(192, 192, 194, 1);
-    --color-neutral-04-09: rgba(213, 213, 214, 1);
-    --color-neutral-04-10: rgba(234, 234, 235, 1);
-    --color-semantic-dark1-0: rgba(220, 57, 87, 1);
-    --color-semantic-dark1-1: rgba(57, 220, 87, 1);
-    --color-semantic-dark3-0: rgba(161, 42, 64, 1);
-    --color-semantic-dark3-1: rgba(42, 161, 64, 1);
-    --color-semantic-dark2-0: rgba(190, 49, 75, 1);
-    --color-semantic-dark2-1: rgba(49, 190, 75, 1);
-    
-    --font-chakra-petch: "Chakra Petch";
-    --font-major-mono-display: "Major Mono Display";
-  }
+@theme {
+  --color-primary-01: rgba(57, 86, 219, 1);
+  --color-primary-02: rgba(77, 103, 223, 1);
+  --color-primary-03: rgba(97, 120, 226, 1);
+  --color-primary-04: rgba(116, 137, 230, 1);
+  --color-primary-05: rgba(136, 154, 233, 1);
+  --color-primary-06: rgba(156, 170, 237, 1);
+  --color-primary-07: rgba(176, 187, 241, 1);
+  --color-primary-08: rgba(196, 204, 244, 1);
+  --color-primary-09: rgba(215, 221, 248, 1);
+  --color-primary-10: rgba(235, 238, 251, 1);
+  --color-secondary-01: rgba(219, 179, 58, 1);
+  --color-secondary-02: rgba(223, 187, 78, 1);
+  --color-secondary-03: rgba(226, 194, 97, 1);
+  --color-secondary-04: rgba(230, 202, 117, 1);
+  --color-secondary-05: rgba(233, 209, 137, 1);
+  --color-secondary-06: rgba(237, 217, 156, 1);
+  --color-secondary-07: rgba(241, 225, 176, 1);
+  --color-secondary-08: rgba(244, 232, 196, 1);
+  --color-secondary-09: rgba(248, 240, 216, 1);
+  --color-secondary-10: rgba(251, 247, 235, 1);
+  --color-neutral-01: rgba(80, 89, 134, 1);
+  --color-neutral-02: rgba(156, 136, 79, 1);
+  --color-neutral-03: rgba(92, 86, 70, 1);
+  --color-neutral-bg: rgba(1, 1, 1, 1);
+  --color-neutral-04-01: rgba(45, 46, 51, 1);
+  --color-neutral-04-02: rgba(66, 67, 71, 1);
+  --color-neutral-04-03: rgba(87, 88, 92, 1);
+  --color-neutral-04-04: rgba(108, 109, 112, 1);
+  --color-neutral-04-05: rgba(129, 130, 133, 1);
+  --color-neutral-04-06: rgba(150, 150, 153, 1);
+  --color-neutral-04-07: rgba(171, 171, 173, 1);
+  --color-neutral-04-08: rgba(192, 192, 194, 1);
+  --color-neutral-04-09: rgba(213, 213, 214, 1);
+  --color-neutral-04-10: rgba(234, 234, 235, 1);
+  --color-semantic-dark1-0: rgba(220, 57, 87, 1);
+  --color-semantic-dark1-1: rgba(57, 220, 87, 1);
+  --color-semantic-dark3-0: rgba(161, 42, 64, 1);
+  --color-semantic-dark3-1: rgba(42, 161, 64, 1);
+  --color-semantic-dark2-0: rgba(190, 49, 75, 1);
+  --color-semantic-dark2-1: rgba(49, 190, 75, 1);
+  --color-dark-01: rgb(230 230 230);
+  --color-dark-02: rgb(204 204 204);
+  --color-dark-03: rgb(179 179 179);
+  --color-dark-04: rgb(153 153 153);
+  --color-dark-05: rgb(128 128 128);
+  --color-dark-06: rgb(103 103 103);
+  --color-dark-07: rgb(77 77 77);
+  --color-dark-08: rgb(77 77 77);
+  --color-dark-09: rgb(26 26 26);
+  --color-dark-10: rgb(1 1 1);
+  --text-h6: 2rem;
+  --text-h2: 4rem;
+  /* --spacing-0.5: 0.5px; */
+  /* --spacing-0.5: 0.5px; */
+  
+  --font-chakra-petch: "Chakra Petch";
+  --font-major-mono-display: "Major Mono Display";
+}
 
 @theme inline {
   --color-background: var(--background);
