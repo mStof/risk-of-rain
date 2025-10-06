@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-type useReturnType = {
-  returnToPlans: boolean;
-  setReturnToPlans: () => void;
-}
+type useNavigationType = {
+  navigation: "buy" | "plans" | "payment";
+  setNavigation: (where: "buy" | "plans" | "payment") => void;
+};
 
-export const useReturn = create<useReturnType>((set => ({
-  returnToPlans: false,
-  setReturnToPlans: () => set((state) => ({ returnToPlans: !state.returnToPlans}))
-})));
+export const useNavigation = create<useNavigationType>((set) => ({
+  navigation: "buy",
+  setNavigation: (where) => set(() => ({ navigation: where }))
+}));

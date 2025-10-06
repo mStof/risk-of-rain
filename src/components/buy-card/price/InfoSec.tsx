@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Button";
-import { useReturn } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/return";
 import { usePrice } from "@/context/buy-card/usePrice";
 import Plan from "./Plan";
 import { usePlan } from "@/context/buy-card/usePlan";
@@ -8,8 +8,7 @@ import { usePlan } from "@/context/buy-card/usePlan";
 const InfoSec = () => {
   const { price } = usePrice();
   const { plan } = usePlan();
-  const { setReturnToPlans } = useReturn();
-  
+  const { setNavigation } = useNavigation();
 
   return (
     <section className="w-full h-full flex flex-col justify-between">
@@ -26,12 +25,13 @@ const InfoSec = () => {
         <div className="w-full h-0.5 bg-secondary-10"></div>
         <div className="flex gap-4">
           <Button
+            onClick={() => setNavigation("payment")}
             title={`R$${price.toFixed(2).replace(".", ",")}`}
             styles="secondary"
             className="text-2xl w-full leading-5"
           />
           <Button
-            onClick={() => setReturnToPlans()}
+            onClick={() => setNavigation("plans")}
             title="Assinaturas"
             className="text-2xl w-full leading-5"
           />

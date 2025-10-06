@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "./Card";
-import { useReturn } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/return";
 
 const Index = () => {
-  const { setReturnToPlans } = useReturn();
+  const { setNavigation } = useNavigation();
 
   const infos1 = [
     "Proteção a danos feitos pela chuva.",
@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <div className="bg-red0 h-full flex flex-col relative">
       <p
-        onClick={() => setReturnToPlans()}
+        onClick={() => setNavigation("buy")}
         className="absolute inset-0 -top-6 leading-4 underline underline-offset-2 cursor-pointer font-chakra-petch -tracking-tighter w-fit h-fit"
       >
         {"<"} Voltar

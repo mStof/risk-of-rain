@@ -3,7 +3,7 @@ import React from "react";
 import checkImg from "@/../public/icons/check.svg";
 import Button from "@/components/Button";
 import { usePlan } from "@/context/buy-card/usePlan";
-import { useReturn } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/return";
 import { usePrice } from "@/context/buy-card/usePrice";
 
 type CardProps = {
@@ -16,13 +16,13 @@ type CardProps = {
 
 const Card = ({ title, price, infos, windows, isGray = false }: CardProps) => {
   const { setPlan } = usePlan();
-  const { setReturnToPlans } = useReturn();
+  const { setNavigation } = useNavigation();
   const { setPrice, ...rest } = usePrice();
 
   const handlePlan = () => {
     setPrice(-rest.price + price, -rest.items);
     setPlan({ infos, plan: title, price, windows });
-    setReturnToPlans();
+    setNavigation("buy");
   };
 
   return (
