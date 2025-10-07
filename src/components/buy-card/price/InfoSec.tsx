@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Button";
-import { useNavigation } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/useNavigation";
 import { usePrice } from "@/context/buy-card/usePrice";
 import Plan from "./Plan";
 import { usePlan } from "@/context/buy-card/usePlan";

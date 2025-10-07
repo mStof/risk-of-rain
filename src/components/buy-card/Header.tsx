@@ -1,4 +1,4 @@
-import { useNavigation } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/useNavigation";
 import React from "react";
 
 const Header = ({ sectionPayment = false }: { sectionPayment?: boolean }) => {

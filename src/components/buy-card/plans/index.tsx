@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import { useNavigation } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/useNavigation";
 
 const Index = () => {
   const { setNavigation } = useNavigation();

@@ -46,13 +46,14 @@ const iconStyle = tv({
 });
 type IconStyleProps = VariantProps<typeof iconStyle> & {
   Icon: ReactNode;
+  desc?: string;
 };
 
-const SvgComponent = ({ colors, sizes, Icon }: IconStyleProps) => {
+const SvgComponent = ({ colors, sizes, Icon, desc }: IconStyleProps) => {
   const { base, line1, line2, line3, line4 } = iconStyle({ colors, sizes });
 
   return (
-    <div className={base()}>
+    <div className={base()} title={desc}>
       <span className={line1()}></span>
       <span className={line2()}></span>
       <span className={line3()}></span>

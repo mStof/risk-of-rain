@@ -3,7 +3,7 @@ import Header from "./Header";
 import Plans from "./plans";
 import Price from "./price";
 import Payment from "./payment";
-import { useNavigation } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/useNavigation";
 
 function Page() {
   const { navigation } = useNavigation();

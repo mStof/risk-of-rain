@@ -1,5 +1,5 @@
-import { CaseIcon, Edit } from "@/components/icons";
-import { useNavigation } from "@/context/buy-card/return";
+import { Edit } from "@/components/icons";
+import { useNavigation } from "@/context/buy-card/useNavigation";
 import { usePlan } from "@/context/buy-card/usePlan";
 import { usePrice } from "@/context/buy-card/usePrice";
 import React from "react";

@@ -3,7 +3,7 @@ import React from "react";
 import checkImg from "@/../public/icons/check.svg";
 import Button from "@/components/Button";
 import { usePlan } from "@/context/buy-card/usePlan";
-import { useNavigation } from "@/context/buy-card/return";
+import { useNavigation } from "@/context/buy-card/useNavigation";
 import { usePrice } from "@/context/buy-card/usePrice";
 
 type CardProps = {
