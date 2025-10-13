@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import Button from "@/components/Button";
 import { Add, CaseIcon } from "@/components/icons";
 import Input from "@/components/Input";
