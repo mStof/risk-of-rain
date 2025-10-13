@@ -12,9 +12,9 @@ const Price = () => {
           <Image src={img} alt="" />
         </section>
         <section className="w-full h-1/2 flex gap-4">
-          <WindowCard title="bastidora" price={1} img={img} />
-          <WindowCard title="cudocisse" price={1} img={img} />
-          <WindowCard title="janela" price={1} img={img} />
+          <WindowCard title="bastidora" price={99.99} img={img} />
+          <WindowCard title="cudocisse" price={99.99} img={img} />
+          <WindowCard title="janela" price={99.99} img={img} />
         </section>
       </section>
       <InfoSec />
