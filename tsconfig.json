@@ -34,7 +34,7 @@
     "**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "src/utils/models/shaw.jsx"  ],
   "exclude": [
     "node_modules",
     ".next"

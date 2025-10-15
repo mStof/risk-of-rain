@@ -3,8 +3,6 @@ import React, { ReactNode, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
-import logoBg from "@/../public/logo.svg";
 
 gsap.registerPlugin(useGSAP);
 
@@ -24,11 +22,7 @@ const Index = ({ children }: TransitionProps) => {
   const RText = useRef<HTMLParagraphElement>(null);
   const imageElem = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
-    console.log("useEffect");
-
-    exitTransition();
-
+  useGSAP(() => {
     const handleRouteChange = (url: string) => {
       if (isTransitioning.current) return;
       isTransitioning.current = true;
@@ -36,16 +30,13 @@ const Index = ({ children }: TransitionProps) => {
     };
 
     const links = document.querySelectorAll<HTMLLinkElement>("a[href^='./']");
-    console.log(links);
+
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("links");
         const href = link.href;
         const url = new URL(href).pathname;
-        if (url !== pathname) {
-          handleRouteChange(url);
-        }
+        if (url !== pathname) handleRouteChange(url);
       });
     });
 
@@ -62,7 +53,7 @@ const Index = ({ children }: TransitionProps) => {
         push(url);
         setTimeout(() => {
           tl.reverse();
-        }, 500);
+        }, 100);
       }
 
       // onComplete: () => push(url)
@@ -70,14 +61,14 @@ const Index = ({ children }: TransitionProps) => {
 
     tl.to(bgElem.current, {
       scaleX: 1,
-      duration: 1,
+      duration: 0.75,
       transformOrigin: "left"
     });
     tl.to(
       line4.current,
       {
         scaleX: 1,
-        duration: 0.75,
+        duration: 0.5,
         ease: "power2.inOut",
         transformOrigin: "right"
       },
@@ -87,7 +78,7 @@ const Index = ({ children }: TransitionProps) => {
       line2.current,
       {
         scaleY: 1,
-        duration: 0.75,
+        duration: 0.5,
         ease: "power2.inOut",
         transformOrigin: "bottom"
       },
@@ -97,7 +88,7 @@ const Index = ({ children }: TransitionProps) => {
       line1.current,
       {
         scaleX: 1,
-        duration: 0.75,
+        duration: 0.5,
         ease: "power2.inOut",
         transformOrigin: "left"
       },
@@ -107,7 +98,7 @@ const Index = ({ children }: TransitionProps) => {
       line3.current,
       {
         scaleY: 1,
-        duration: 0.75,
+        duration: 0.5,
         transformOrigin: "top",
         ease: "power2.inOut"
       },
@@ -119,31 +110,11 @@ const Index = ({ children }: TransitionProps) => {
         opacity: 1,
         translateY: -12,
         translateX: -12,
-        duration: 0.75,
+        duration: 0.5,
         ease: "power2.inOut"
       },
       "-=75%"
     );
-  };
-
-  const exitTransition = () => {
-    const tl = gsap.timeline({
-      onComplete: () => {
-        isTransitioning.current = false;
-      }
-    });
-
-    // tl.to(bgElem.current, {
-    //   scaleX: 0,
-    //   duration: 1,
-    //   transformOrigin: "right"
-    // });
-
-    // tl.to(imageElem.current, {
-    //   opacity: 0,
-    //   duration: 0.5,
-
-    // });
   };
 
   return (

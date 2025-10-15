@@ -1,23 +1,59 @@
 "use client";
-import React from "react";
-import Transition from "@/components/transition";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import React, { Suspense, useRef } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Grub } from "@/utils/models/Grub";
+import { OrbitControls, Scroll, ScrollControls } from "@react-three/drei";
+import { Group, Object3DEventMap } from "three";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Overlay from "@/components/home/Overlay";
 
 export default function Home() {
+  const group = useRef<Group<Object3DEventMap>>(null);
+
+  const { contextSafe } = useGSAP();
+
+  const handleAnimationSeekCursor = contextSafe(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      if (group.current && group.current?.position.x > 0.5) return;
+      gsap.to(group.current?.rotation as gsap.TweenTarget, {
+        x: -0.75 + (e.clientY / window.innerHeight) * 1.5,
+        y: -0.75 + (e.clientX / window.innerWidth) * 1.5
+      });
+    }
+  );
+
+  const handleAnimationexit = contextSafe(() => {
+    if (group.current && group.current?.position.x > 0.25) return;
+    gsap.to(group.current?.rotation as gsap.TweenTarget, {
+      x: 0.25,
+      y: 1
+    });
+  });
 
   return (
-      <main className="bg-neutral-bg bg-(image:--bg-pattern) flex flex-col items-center justify-center h-screen overflow-hidden">
-        <div className="flex items-center justify-center overflow-hidden isolate size-fit">
-          <Link href="./buy-card" className="size-[25rem] bg-red-400 z-10"></Link>
-          <div className="h-screen aspect-square bg-radial from-secondary-10/25 to-75% absolute"></div>
-        </div>
-        <h1 className="font-heading text-[120px] leading-24 w-fit">
-          <span className="text-secondary-01">R</span>isk of RAin
-        </h1>
-        <p className="font-heading text-4xl text-secondary-01 absolute top-full left-1/2 -translate-x-1/2 leading-7 animate-bounce -translate-[calc(100%+2rem)] z-50">
-          V
-        </p>
-      </main>
+    <main className="bg-neutral-bg bg-(image:--bg-pattern) flex flex-col items-center justify-center h-screen overflow-hidden **:[&::-webkit-scrollbar]:h-2">
+      <Suspense fallback={null}>
+        <Canvas
+          className="size-[25rem]"
+          onMouseMove={(e) => handleAnimationSeekCursor(e)}
+          onMouseLeave={handleAnimationexit}
+        >
+          <ambientLight intensity={1} />
+          <OrbitControls
+            minDistance={1}
+            enableZoom={false}
+            enablePan={false}
+            enableRotate={false}
+          />
+          <ScrollControls horizontal pages={2} damping={0}>
+            <Grub ref={group} />
+            <Scroll html>
+              <Overlay />
+            </Scroll>
+          </ScrollControls>
+        </Canvas>
+      </Suspense>
+    </main>
   );
 }
