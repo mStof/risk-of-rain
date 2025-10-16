@@ -10,7 +10,6 @@ import Overlay from "@/components/home/Overlay";
 
 export default function Home() {
   const group = useRef<Group<Object3DEventMap>>(null);
-
   const { contextSafe } = useGSAP();
 
   const handleAnimationSeekCursor = contextSafe(

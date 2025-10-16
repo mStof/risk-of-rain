@@ -28,8 +28,8 @@ export function Grub(props) {
   useGSAP(() => {
     tl.current = gsap.timeline();
     // tl.current.set(props.ref.current.rotation, {
-    //   x: -6,
-    //   y:-7,
+      //   x: -6,
+      //   y:-7,
     //   duration:.25
     // })
     tl.current.to(props.ref.current.position, {
@@ -49,6 +49,7 @@ export function Grub(props) {
       },
       "-=95%"
     );
+    tl.current.pause();
   }, []);
 
   useFrame(() => {});
@@ -78,6 +79,7 @@ export function Grub(props) {
           scale={[468.796, 468.796, 379.893]}
         >
           <mesh
+
             geometry={nodes.Jar001_Glass_0.geometry}
             material={materials.Glass}
           />
