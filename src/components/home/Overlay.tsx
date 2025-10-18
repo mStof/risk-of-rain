@@ -31,7 +31,7 @@ const Overlay = () => {
   }, []);
 
   return (
-      <section className="flex">
+      <section className="flex text-secondary-10">
         <section className="w-screen h-screen flex justify-center bg-red500 items-end pb-20">
           <h1 className="font-heading text-[120px] leading-24 w-fit">
             <span className="text-secondary-01">R</span>isk of RAin
