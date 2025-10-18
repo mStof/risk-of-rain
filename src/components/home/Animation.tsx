@@ -115,7 +115,7 @@ const Animation = ({ progressAnim }: AnimationType) => {
         // position={[57, 2.9, 6.2]}
       />
       <Grub ref={group} />
-      <axesHelper args={[300]} />
+      {/* <axesHelper args={[300]} /> */}
     </>
   );
 };

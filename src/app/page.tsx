@@ -79,7 +79,7 @@ export default function Home() {
     >
       <div
         ref={cameraRef}
-        className="w-screen h-screen border border-red-900 fixed z-10"
+        className="w-screen h-screen  fixed z-10"
       >
         <Canvas className="size-[25rem] z-0">
           <Animation progressAnim={progress} />
