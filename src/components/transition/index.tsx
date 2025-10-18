@@ -118,7 +118,7 @@ const Index = ({ children }: TransitionProps) => {
   };
 
   return (
-    <div className="bg-red-500">
+    <>
       <div
         ref={bgElem}
         className="absolute h-svh w-full scale-x-0 z-90 bg-dark-10 bg-(image:--bg-patter) flex justify-center items-center p-60"
@@ -155,7 +155,7 @@ const Index = ({ children }: TransitionProps) => {
         </div>
       </div>
       {children}
-    </div>
+    </>
   );
 };
 

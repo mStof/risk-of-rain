@@ -21,40 +21,43 @@ export function Grub(props) {
   const scroll = useScroll();
   const tl = useRef();
 
-  useFrame(() => {
-    tl.current.seek(scroll.offset * tl.current.duration());
-  });
+  // useFrame(() => {
+  //   console.log("I WANNA");
+    
+  //   tl.current.seek(scroll.offset * tl.current.duration());
+  // });
 
-  useGSAP(() => {
-    tl.current = gsap.timeline();
+  // useGSAP(() => {
+  //   tl.current = gsap.timeline();
     // tl.current.set(props.ref.current.rotation, {
       //   x: -6,
       //   y:-7,
     //   duration:.25
     // })
-    tl.current.to(props.ref.current.position, {
-      x: 7.5,
-      duration: 0.5
-    });
-    tl.current.fromTo(
-      props.ref.current.rotation,
-      {
-        x: 0,
-        y: 0
-      },
-      {
-        x: 0.25,
-        y: -1.5,
-        duration: 0.5
-      },
-      "-=95%"
-    );
-    tl.current.pause();
-  }, []);
+  //   tl.current.to(props.ref.current.position, {
+  //     x: 7.5,
+  //     duration: 0.5
+  //   });
+  //   tl.current.fromTo(
+  //     props.ref.current.rotation,
+  //     {
+  //       x: 0,
+  //       y: 0
+  //     },
+  //     {
+  //       x: 0.25,
+  //       y: -1.5,
+  //       duration: 0.5
+  //     },
+  //     "-=95%"
+  //   );
+  //   tl.current.pause();
+  // }, []);
 
-  useFrame(() => {});
+    // useFrame(() => console.log(props.ref.current?.position, props.ref.current?.rotation));
+
   return (
-    <group {...props} dispose={null} position={[0, -0.5, -3]}>
+    <group {...props} dispose={null} >
       <group scale={0.01}>
         <group
           position={[0, -200, 0]}

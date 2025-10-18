@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased cursor-(--cursor-base)`}
+        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased cursor-(--cursor-base) overflow-x-`}
       >
         <Transition>{children}</Transition>
       </body>
