@@ -53,25 +53,30 @@ const Animation = ({ progressAnim }: AnimationType) => {
 
     const positions = [
       [0, 1, 15],
-      [7, 12.9, 15.9],
-      [5.7, 2.9, 6.2]
+      // [7, 12.9, 15.9],
+      [5.7, 2.9, 6.2],
+      // [-6.2, 1.4, 6.2],
+      [-6.7, 2.0, 5.4],
+      [-6.7, 2.0, 5.4],
     ];
     const rotations = [
       [0, 0, 0],
       [-0.9, -0.3, 0.45],
-      [-0.2449372418256158, 1.1970034175465012, 0.22862770341878763]
+      [-0.2449372418256158, 1.1970034175465012, 0.22862770341878763],
     ];
 
-    const segment = 1 / 2;
+    const segment = 1 / 3;
     const segmentIndex = Math.floor(progressAnim / segment);
 
     const porcentage = (progressAnim % segment) / segment;
-    if (segmentIndex + 1 === positions.length) return;
+
+    if (segmentIndex + 1 >= positions.length) return;
     const [startX, startY, startZ] = positions[segmentIndex];
     const [endX, endY, endZ] = positions[segmentIndex + 1];
     const x = startX + (endX - startX) * porcentage;
     const y = startY + (endY - startY) * porcentage;
     const z = startZ + (endZ - startZ) * porcentage;
+    // console.log(segmentIndex, porcentage, startX, endX);
     // console.log(x, y, z);
 
     gsap.to(cameraRef.current?.position as gsap.TweenTarget, {
@@ -80,17 +85,14 @@ const Animation = ({ progressAnim }: AnimationType) => {
       z
     });
 
-    console.log(progressAnim);
-
+    // window.addEventListener("click", handleClick);
     if (progressAnim <= 0 && listener) {
-      console.log("added");
       window.addEventListener("mousemove", listener);
     } else {
-      console.log("removed");
-      if(listener) window.removeEventListener("mousemove", listener);
+      if (listener) window.removeEventListener("mousemove", listener);
       gsap.to(group.current?.rotation as gsap.TweenTarget, {
-        x:0,
-        y:0,
+        x: 0,
+        y: 0
       });
     }
 
@@ -103,7 +105,7 @@ const Animation = ({ progressAnim }: AnimationType) => {
   return (
     <>
       <ambientLight intensity={1} />
-      {/* <OrbitControls /> */}
+      <OrbitControls />
       <PerspectiveCamera
         ref={cameraRef}
         makeDefault

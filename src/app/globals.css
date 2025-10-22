@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --cursor-base: url('/cursors/base.svg'), auto;
+  --cursor-base: url('/cursors/base.svg'), url('/cursors/pointer.svg'), auto;
   --cursor-pointer: url('/cursors/pointer.svg'), pointer;
   --bg-pattern: url('/bg-pattern.svg');
 }
@@ -60,6 +60,7 @@
   --color-dark-09: rgb(26 26 26);
   --color-dark-10: rgb(1 1 1);
   --text-h6: 2rem;
+  --text-h4: 3rem;
   --text-h2: 4rem;
   /* --spacing-0.5: 0.5px; */
   /* --spacing-0.5: 0.5px; */
