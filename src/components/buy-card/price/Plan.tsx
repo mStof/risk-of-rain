@@ -1,4 +1,4 @@
-import { Edit } from "@/components/icons";
+import { CaseIcon, Edit } from "@/components/icons";
 import { useNavigation } from "@/context/buy-card/useNavigation";
 import { usePlan } from "@/context/buy-card/usePlan";
 import { usePrice } from "@/context/buy-card/usePrice";
@@ -6,13 +6,13 @@ import React from "react";
 
 const Plan = () => {
   const { infos, plan, windows, setPlan } = usePlan();
-  const { items, price,setPrice } = usePrice();
-  const {setNavigation} = useNavigation();
+  const { items, price, setPrice } = usePrice();
+  const { setNavigation } = useNavigation();
 
   // console.log(infos);
   const handlePlan = () => {
     setPrice(-price, -items);
-    setPlan({ infos:[], plan: "", price, windows:0 });
+    setPlan({ infos: [], plan: "", price, windows: 0 });
     setNavigation("plans");
   };
 
@@ -23,11 +23,11 @@ const Plan = () => {
           <p className="font-chakra-petch text-2xl font-light -tracking-tighter leading-6 ">
             Plano escolhido
           </p>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-4 items-center">
             <p className="font-chakra-petch text-2xl font-light -tracking-tighter leading-6">
               {plan}
             </p>
-            <Edit fill="#fbf7eb" onClick={handlePlan}  />
+            <CaseIcon desc="Mude o plano" sizes="sm" Icon={<Edit fill="#fbf7eb" onClick={handlePlan} />} />
           </div>
         </div>
         <span className="w-full h-px bg-secondary-10"></span>

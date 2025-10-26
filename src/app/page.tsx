@@ -1,7 +1,7 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import Animation from "../components/home/Animation";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
@@ -57,9 +57,11 @@ export default function Home() {
         ref={cameraRef}
         className="w-full h-screen fixed border border-red-900 z-0"
       >
-        <Canvas className="size-[25rem] z-0">
-          <Animation progressAnim={progress} />
-        </Canvas>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Canvas className="size-[25rem] z-0">
+            <Animation progressAnim={progress} />
+          </Canvas>
+        </Suspense>
       </div>
       <ScrollHorizontal />
       <section className="h-fit w-auto flex flex-col gap-4 px-40 py-20">

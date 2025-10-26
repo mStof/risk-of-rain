@@ -1,3 +1,5 @@
+"use client";
+import { useMouse } from "@/context/useMouse";
 import React, { InputHTMLAttributes, ReactNode } from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 // import icon from "@/../public/icons/account_circle.svg";
@@ -7,7 +9,7 @@ const inputStyle = tv({
     base: "w-full px-3 py-4 pr-4 border border-secondary-01 h-fit flex items-center justify-between",
     container: "flex flex-col gap-2",
     input:
-      "w-full outline-none font-base leading-4 font-chakra-petch bg-red00 -tracking-tighter font-light",
+      "w-full outline-none font-base leading-4 font-chakra-petch bg-red00 -tracking-tighter font-light cursor-none",
     label:
       "text-sm font-chakra-petch text-secondary-10 -tracking-tighter font-light leading-3 bgred-500"
   },
@@ -40,6 +42,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> &
   };
 
 const Input = ({ state, icon, title, ...rest }: InputProps) => {
+  const {setSelected} = useMouse();
   const { base, input, label, container } = inputStyle({ state });
   return (
     <div className={container({class: rest.className})}>
@@ -50,7 +53,7 @@ const Input = ({ state, icon, title, ...rest }: InputProps) => {
       )}
 
       <div className={base()}>
-        <input {...rest} className={input()} disabled={state === "disabled"} />
+        <input {...rest} className={input()} disabled={state === "disabled"} onMouseEnter={() => setSelected(true)} onMouseLeave={() => setSelected(false)} />
         {icon && icon}
       </div>
     </div>

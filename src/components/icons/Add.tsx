@@ -3,17 +3,16 @@ import type { SVGProps } from "react";
 const SvgAdd = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={16}
-    height={16}
+    width="1em"
+    height="1em"
     viewBox="0 0 16 16"
-
     fill="none"
     {...props}
   >
     <mask
       id="add_svg__a"
-      width={16}
-      height={16}
+      width="1em"
+      height="1em"
       x={0}
       y={0}
       maskUnits="userSpaceOnUse"

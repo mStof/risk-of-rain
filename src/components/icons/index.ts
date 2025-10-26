@@ -10,3 +10,6 @@ export { default as History } from "./History";
 export { default as Home } from "./Home";
 export { default as Wifi } from "./Wifi";
 export { default as CaseIcon } from "./CaseIcon";
+export { default as Apple } from "./Apple";
+export { default as Google } from "./Google";
+export { default as Small } from "./Small";

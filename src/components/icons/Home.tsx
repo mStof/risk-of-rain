@@ -24,7 +24,7 @@ const SvgHome = (props: SVGProps<SVGSVGElement>) => (
     </mask>
     <g mask="url(#home_svg__a)">
       <path
-        fill="#DBB33A"
+        fill={props.fill || "#DBB33A"}
         d="M4 12.667h2v-4h4v4h2v-6l-4-3-4 3zM2.667 14V6L8 2l5.333 4v8H8.667v-4H7.333v4z"
       />
     </g>

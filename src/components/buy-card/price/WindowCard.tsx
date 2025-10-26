@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { usePrice } from "@/context/buy-card/usePrice";
 import { usePlan } from "@/context/buy-card/usePlan";
+import { Add, Small } from "@/components/icons";
 
 type WindowCardProps = {
   title: string;
@@ -58,22 +59,22 @@ const WindowCard = ({ title, price, img }: WindowCardProps) => {
           R${price.toFixed(2).replace(".", ",")}
         </p>
       </div>
-      <Image src={img} alt="" className="self-center" />
+      <Image src={img} alt="" className="self-center rotate-90 w-4/6" />
       <div className="w-full flex justify-between items-center">
         <div
-          className="border-2 border-secondary-01 h-full aspect-square text-base flex items-center justify-center"
+          className="border-2 border-secondary-01 h-full aspect-square flex text-sm items-center justify-center"
           onClick={() => handleChange("increase")}
         >
-          +
+          <Add />
         </div>
         <p className="border-2 border-secondary-01 font-major-mono-display -tracking-[0.08rem]  text-base px-3 flex justify-center">
           {quantity > 9 ? quantity : `0${quantity}`}
         </p>
         <div
-          className="border-2 border-secondary-01 h-full aspect-square text-base flex items-center justify-center"
+          className="border-2 border-secondary-01 h-full aspect-square text-sm flex items-center justify-center"
           onClick={() => handleChange("decrease")}
         >
-          -
+          <Small />
         </div>
       </div>
     </article>

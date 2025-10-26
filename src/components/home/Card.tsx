@@ -34,7 +34,6 @@ const Card = ({ imgConfig, subtitle, title }: CardType) => {
 
   const handleHover = contextSafe(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      console.log(e);
 
       if (xRef.current && yRef.current && sectionRef.current) {
         xRef.current(e.clientX - sectionRef.current.offsetLeft + 24);
@@ -63,7 +62,7 @@ const Card = ({ imgConfig, subtitle, title }: CardType) => {
       onMouseMove={(e) => handleHover(e)}
       className="cursor-(--cursor-pointer) w-fit h-fit backdrop-blur-none relative  bg-emerald00 py-16 px-20 border-2 border-secondary-01 "
     >
-      <a href="./infos/1" className="flex flex-col gap-12">
+      <a href="./infos/slug" className="flex flex-col gap-12">
         <p
           ref={viewRef}
           className="absolute font-major-mono-display opacity-0 text-secondary-01 text-2xl leading-6 z-30 inset-0"

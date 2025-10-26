@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useEffect, useRef } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -13,39 +13,13 @@ type TransitionProps = {
 const Index = ({ children }: TransitionProps) => {
   const pathname = usePathname();
   const { push } = useRouter();
-  const isTransitioning = useRef(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const bgElem = useRef<HTMLDivElement>(null);
   const line1 = useRef<HTMLSpanElement>(null);
   const line2 = useRef<HTMLSpanElement>(null);
   const line3 = useRef<HTMLSpanElement>(null);
   const line4 = useRef<HTMLSpanElement>(null);
   const RText = useRef<HTMLParagraphElement>(null);
-  const imageElem = useRef<HTMLImageElement>(null);
-
-  useGSAP(() => {
-    const handleRouteChange = (url: string) => {
-      if (isTransitioning.current) return;
-      isTransitioning.current = true;
-      enterTransition(url);
-    };
-
-    const links = document.querySelectorAll<HTMLLinkElement>("a[href^='./']");
-
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const href = link.href;
-        const url = new URL(href).pathname;
-        if (url !== pathname) handleRouteChange(url);
-      });
-    });
-
-    return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", () => handleRouteChange(link.href));
-      });
-    };
-  }, [pathname]);
 
   const enterTransition = (url: string) => {
     const tl = gsap.timeline({
@@ -116,6 +90,34 @@ const Index = ({ children }: TransitionProps) => {
       "-=75%"
     );
   };
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      if (isTransitioning) return;
+      setIsTransitioning(true);
+      enterTransition(url);
+    };
+
+    const links = document.querySelectorAll<HTMLLinkElement>("a:not(.external)");
+    console.log(links);
+
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = link.href;
+        const url = new URL(href).pathname;
+        console.log(url, pathname);
+        
+        if (url !== pathname) handleRouteChange(url);
+      });
+    });
+
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener("click", () => handleRouteChange(link.href));
+      });
+    };
+  }, [pathname, enterTransition, isTransitioning]);
 
   return (
     <>

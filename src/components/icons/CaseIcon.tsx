@@ -1,16 +1,17 @@
+"use client";
 import { tv, type VariantProps } from "tailwind-variants";
-import { AccountCircle } from ".";
 import { ReactNode } from "react";
+import { useMouse } from "@/context/useMouse";
 
 const iconStyle = tv({
   slots: {
     base: "size-6 rotate-45 relative flex bg-emeald-500 translate-y-0.5",
-    line1: "bg-secondary-01 h-[1.5px] w-full inset-0 absolute z-50",
-    line2: "bg-secondary-01 h-full w-[1.5px] absolute z-50",
+    line1: "bg-secondary-10 h-[1.5px] w-full inset-0 absolute z-50",
+    line2: "bg-secondary-10 h-full w-[1.5px] absolute z-50",
     line3:
-      "bg-secondary-01 h-7/12 w-[1.5px] left-full -transate-x-full absolute z-50",
+      "bg-secondary-10 h-7/12 w-[1.5px] left-full -transate-x-full absolute z-50",
     line4:
-      "bg-secondary-01 h-[1.5px] w-7/12 top-full -tranlate-y-full absolute z-50"
+      "bg-secondary-10 h-[1.5px] w-7/12 top-full -tranlate-y-full absolute z-50"
   },
   variants: {
     colors: {
@@ -40,7 +41,7 @@ const iconStyle = tv({
     }
   },
   defaultVariants: {
-    colors: "base",
+    // colors: "base",
     sizes: "md"
   }
 });
@@ -51,9 +52,10 @@ type IconStyleProps = VariantProps<typeof iconStyle> & {
 
 const SvgComponent = ({ colors, sizes, Icon, desc }: IconStyleProps) => {
   const { base, line1, line2, line3, line4 } = iconStyle({ colors, sizes });
+  const {setSelected} = useMouse();
 
   return (
-    <div className={base()} title={desc}>
+    <div onMouseEnter={() => setSelected(true)} onMouseLeave={() => setSelected(false)} className={base()} title={desc}>
       <span className={line1()}></span>
       <span className={line2()}></span>
       <span className={line3()}></span>

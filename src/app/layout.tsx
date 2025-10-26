@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Chakra_Petch, Major_Mono_Display } from "next/font/google";
 import "./globals.css";
 import Transition from "@/components/transition";
+import { Mouse } from "@/components/Mouse";
 
 const chakraPetch = Chakra_Petch({
   variable: "--font-chakra-petch",
@@ -28,8 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased cursor-(--cursor-base) overflow-x-`}
+        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none`}
       >
+        <Mouse/>
         <Transition>{children}</Transition>
       </body>
     </html>

@@ -11,7 +11,7 @@ const SvgAlert = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="#DBB33A"
+      fill={props.fill || "#DBB33A"}
       d="M6.234 3.063V0h3.532v3.063l-.415 8.32H6.649zM6 15.017v-1.371l1.117-.983h1.766l1.117.983v1.371L8.883 16H7.117z"
     />
   </svg>

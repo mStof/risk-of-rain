@@ -25,7 +25,7 @@ const SvgCheck = (props: SVGProps<SVGSVGElement>) => (
     </mask>
     <g mask="url(#check_svg__a)">
       <path
-        fill="#DBB33A"
+        fill={props.fill || "#DBB33A"}
         d="m7.959 15-4.75-4.75 1.187-1.187 3.563 3.562 7.645-7.646 1.188 1.188z"
       />
     </g>

@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --cursor-base: url('/cursors/base.svg'), url('/cursors/pointer.svg'), auto;
+  /* --cursor-base: url('/cursors/base.svg'), auto; */
   --cursor-pointer: url('/cursors/pointer.svg'), pointer;
   --bg-pattern: url('/bg-pattern.svg');
 }
