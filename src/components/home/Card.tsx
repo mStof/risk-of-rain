@@ -3,6 +3,7 @@ import React, { createElement, useRef } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 gsap.registerPlugin(useGSAP);
 
@@ -34,7 +35,6 @@ const Card = ({ imgConfig, subtitle, title }: CardType) => {
 
   const handleHover = contextSafe(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-
       if (xRef.current && yRef.current && sectionRef.current) {
         xRef.current(e.clientX - sectionRef.current.offsetLeft + 24);
         yRef.current(e.pageY - sectionRef.current.offsetTop + 24);
@@ -55,14 +55,14 @@ const Card = ({ imgConfig, subtitle, title }: CardType) => {
   });
 
   return (
-    <section
-      ref={sectionRef}
-      onMouseEnter={handleIn}
-      onMouseLeave={handleOut}
-      onMouseMove={(e) => handleHover(e)}
-      className="cursor-(--cursor-pointer) w-fit h-fit backdrop-blur-none relative  bg-emerald00 py-16 px-20 border-2 border-secondary-01 "
-    >
-      <a href="./infos/slug" className="flex flex-col gap-12">
+    <Link href="/infos/slug" className="">
+      <section
+        ref={sectionRef}
+        onMouseEnter={handleIn}
+        onMouseLeave={handleOut}
+        onMouseMove={(e) => handleHover(e)}
+        className="cursor-(--cursor-pointer) w-fit h-fit backdrop-blur-none relative flex flex-col gap-12 bg-emerald00 py-16 px-20 border-2 border-secondary-01 "
+      >
         <p
           ref={viewRef}
           className="absolute font-major-mono-display opacity-0 text-secondary-01 text-2xl leading-6 z-30 inset-0"
@@ -83,8 +83,8 @@ const Card = ({ imgConfig, subtitle, title }: CardType) => {
           alt={imgConfig.alt}
           className="w-full isolate"
         />
-      </a>
-    </section>
+      </section>
+    </Link>
   );
 };
 

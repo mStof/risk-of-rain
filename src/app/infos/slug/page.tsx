@@ -19,12 +19,10 @@ const Index = () => {
     if (!sectionInfos.current) return;
     const sections =
       sectionInfos.current?.querySelectorAll(".section").length - 1;
-    console.log(sections);
 
     const eachProgress = heightSize / sections;
     const currentSection = Math.floor(scrollProgress / eachProgress);
     const listItems = listRef.current?.querySelectorAll("li > div");
-    console.log(listItems, currentSection);
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
     for (let i = 0; i <= currentSection; i++) {
@@ -124,18 +122,8 @@ const Index = () => {
         </ul>
       </article>
       {/* Just to fill the space */}
-      <div className="opacity-0 w-max-80 w-max h-full pl-8 pr-20 flex">
-        <Link
-          href="./../../"
-          className="flex gap-1 absolute inset-8 w-fit h-fit"
-        >
-          <p className="font-major-mono-display text-base rotate-90 text-secondary-01 w-fit h-fit">
-            V
-          </p>
-          <p className="font-chakra-petch text-base text-secondary-01 w-fit h-fit -tracking-tighter underline underline-offset-4">
-            Voltar
-          </p>
-        </Link>
+      <div className="opacity-0 w-max-80 w-max h-full pl-8 pr-20 flex -z-40">
+        
         <ul className="my-auto flex flex-col gap-8 list-disc ml-4">
           <li className="isolate flex gap-2 items-center">
             Navegação Principal.

@@ -13,10 +13,14 @@ import { useGLTF, useScroll } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { usePathname } from "next/navigation";
 
 export function Grub(props) {
-  const { scene } = useGLTF("models/grub.glb");
-  const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
+  const test = useGLTF("models/grub.glb");
+  const pathname = usePathname()
+  console.log(pathname);
+  
+  const clone = React.useMemo(() => SkeletonUtils.clone(test.scene), [test.scene]);
   const { nodes, materials } = useGraph(clone);
   const scroll = useScroll();
   const tl = useRef();

@@ -1,7 +1,7 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import Animation from "../components/home/Animation";
-import { Suspense, useRef, useState } from "react";
+import { Ref, Suspense, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
@@ -14,8 +14,9 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function Home() {
   const containerRef = useRef<HTMLElement>(null);
   const cameraRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [progress, setProgress] = useState(0);
-
+  
   useGSAP(() => {
     const cameraTL = gsap.timeline({
       scrollTrigger: {
@@ -40,8 +41,8 @@ export default function Home() {
       y: "0vh"
     });
     cameraTL.to(cameraRef.current, {
-      x: "-100vw",
-      y: "-100vh"
+      x:0,y:0,
+      position:"absolute"
     });
     return () => {
       // sectionAnimation.kill();
@@ -58,7 +59,7 @@ export default function Home() {
         className="w-full h-screen fixed border border-red-900 z-0"
       >
         <Suspense fallback={<div>Loading...</div>}>
-          <Canvas className="size-[25rem] z-0">
+          <Canvas ref={canvasRef} className="size-[25rem] z-0" onCreated={(e) => console.warn(e)} onInvalid={(e) => console.log(e)}>
             <Animation progressAnim={progress} />
           </Canvas>
         </Suspense>

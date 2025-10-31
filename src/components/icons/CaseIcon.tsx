@@ -1,6 +1,6 @@
 "use client";
 import { tv, type VariantProps } from "tailwind-variants";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { useMouse } from "@/context/useMouse";
 
 const iconStyle = tv({
@@ -45,17 +45,17 @@ const iconStyle = tv({
     sizes: "md"
   }
 });
-type IconStyleProps = VariantProps<typeof iconStyle> & {
+type IconStyleProps =  VariantProps<typeof iconStyle> &  HTMLAttributes<HTMLDivElement> &{
   Icon: ReactNode;
   desc?: string;
 };
 
-const SvgComponent = ({ colors, sizes, Icon, desc }: IconStyleProps) => {
+const SvgComponent = ({ colors, sizes, Icon, desc, ...props }: IconStyleProps) => {
   const { base, line1, line2, line3, line4 } = iconStyle({ colors, sizes });
   const {setSelected} = useMouse();
 
   return (
-    <div onMouseEnter={() => setSelected(true)} onMouseLeave={() => setSelected(false)} className={base()} title={desc}>
+    <div {...props} onMouseEnter={() => setSelected(true)} onMouseLeave={() => setSelected(false)} className={base()} title={desc}>
       <span className={line1()}></span>
       <span className={line2()}></span>
       <span className={line3()}></span>
