@@ -1,8 +1,9 @@
 "use client";
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { usePathname, useRouter } from "next/navigation";
+import { useMouse } from "@/context/useMouse";
 
 gsap.registerPlugin(useGSAP);
 
@@ -21,6 +22,7 @@ const Index = ({ children }: TransitionProps) => {
   const line3 = useRef<HTMLSpanElement>(null);
   const line4 = useRef<HTMLSpanElement>(null);
   const RText = useRef<HTMLParagraphElement>(null);
+  const {setSelected} = useMouse();
 
   const enterTransition = contextSafe((url: string) => {
     const tl = gsap.timeline({
@@ -88,6 +90,8 @@ const Index = ({ children }: TransitionProps) => {
   });
   const exitTransition = contextSafe(() => {
     const tl = gsap.timeline({
+      // onStart: () => setSelected(false),
+
       onComplete: () => {
         isTransitioning.current = false;
       }
@@ -160,7 +164,6 @@ const Index = ({ children }: TransitionProps) => {
 
     const links =
       document.querySelectorAll<HTMLLinkElement>("a:not(.external)");
-
 
     links.forEach((link) => {
       link.addEventListener("click", (e) => {

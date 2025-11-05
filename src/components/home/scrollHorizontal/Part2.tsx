@@ -13,7 +13,7 @@ const Part2 = () => {
         trigger: sectionTwo.current,
         start: "60% top",
         end: "90% top",
-        scrub: true
+        scrub: true,
       }
     });
     return () => {

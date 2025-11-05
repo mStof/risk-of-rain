@@ -1,8 +1,10 @@
 import { useNavigation } from "@/context/buy-card/useNavigation";
+import { useBuyModal } from "@/context/useBuyModal";
 import React from "react";
 
 const Header = ({ sectionPayment = false }: { sectionPayment?: boolean }) => {
   const {setNavigation} = useNavigation();
+  const {setIsOpen} = useBuyModal();
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-2">
@@ -15,6 +17,7 @@ const Header = ({ sectionPayment = false }: { sectionPayment?: boolean }) => {
         <p data-activate={sectionPayment} className="data-[activate=true]:opacity-100 text-h6 leading-none text-secondary-10 font-major-mono-display opacity-25">
           pagamento
         </p>
+        <p onClick={() => setIsOpen(false)} className="external font-major-mono-display ml-auto text-2xl">x</p>
       </div>
       <div className="h-0.5 w-full bg-secondary-10"></div>
     </div>

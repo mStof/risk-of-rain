@@ -7,58 +7,15 @@ Source: https://sketchfab.com/3d-models/hollow-knight-trapped-grub-1723f50da7fe4
 Title: -Hollow Knight- Trapped Grub
 */
 
-import React, { useRef } from "react";
-import { useFrame, useGraph } from "@react-three/fiber";
-import { useGLTF, useScroll } from "@react-three/drei";
+import { useGraph } from "@react-three/fiber";
+import { useGLTF,  } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { usePathname } from "next/navigation";
+import { useMemo } from "react";
 
-export function Grub(props) {
-  const test = useGLTF("models/grub.glb");
-  const pathname = usePathname()
-  console.log(pathname);
-  
-  const clone = React.useMemo(() => SkeletonUtils.clone(test.scene), [test.scene]);
+export default function Grub(props) {
+  const model = useGLTF("models/grub.glb");
+  const clone = useMemo(() => SkeletonUtils.clone(model.scene), [model.scene]);
   const { nodes, materials } = useGraph(clone);
-  const scroll = useScroll();
-  const tl = useRef();
-
-  // useFrame(() => {
-  //   console.log("I WANNA");
-    
-  //   tl.current.seek(scroll.offset * tl.current.duration());
-  // });
-
-  // useGSAP(() => {
-  //   tl.current = gsap.timeline();
-    // tl.current.set(props.ref.current.rotation, {
-      //   x: -6,
-      //   y:-7,
-    //   duration:.25
-    // })
-  //   tl.current.to(props.ref.current.position, {
-  //     x: 7.5,
-  //     duration: 0.5
-  //   });
-  //   tl.current.fromTo(
-  //     props.ref.current.rotation,
-  //     {
-  //       x: 0,
-  //       y: 0
-  //     },
-  //     {
-  //       x: 0.25,
-  //       y: -1.5,
-  //       duration: 0.5
-  //     },
-  //     "-=95%"
-  //   );
-  //   tl.current.pause();
-  // }, []);
-
-    // useFrame(() => console.log(props.ref.current?.position, props.ref.current?.rotation));
 
   return (
     <group {...props} dispose={null} >

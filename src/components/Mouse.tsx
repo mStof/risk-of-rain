@@ -4,19 +4,20 @@ import { useEffect, useState } from "react";
 
 export const Mouse = () => {
   const [coordenates, setCoordenates] = useState({ x: 20, y: 20 });
-  const {selected} = useMouse();
+  const {selected, setSelected} = useMouse();
 
   useEffect(() => {
+    setSelected(false);
     window.addEventListener("mousemove", (e) => {
-      const x = e.pageX;
-      const y = e.pageY;
+      const x = e.x;
+      const y = e.y;
       setCoordenates({ x, y });
     });
-  }, []);
+  }, [setSelected]);
   return (
     <div
       style={{ left: coordenates.x, top: coordenates.y }}
-      className="size-8 rounded-full absolute -translate-1/2 pointer-events-none  cursor-none mix-blend-difference z-50"
+      className="size-8 rounded-full fixed -translate-1/2 pointer-events-none  cursor-none mix-blend-difference z-90"
     >
       <svg
         width="33"

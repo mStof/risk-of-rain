@@ -3,6 +3,9 @@ import { Chakra_Petch, Major_Mono_Display } from "next/font/google";
 import "./globals.css";
 import Transition from "@/components/transition";
 import { Mouse } from "@/components/Mouse";
+import Enter from "./enterOnce";
+import BuyCardContainer from "@/components/buy-card";
+import Navbar from "@/components/Navbar";
 
 const chakraPetch = Chakra_Petch({
   variable: "--font-chakra-petch",
@@ -31,8 +34,15 @@ export default function RootLayout({
       <body
         className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none`}
       >
-        <Mouse/>
-        <Transition>{children}</Transition>
+        <Mouse />
+        {/* <Enter> */}
+          <Transition>
+            <BuyCardContainer />
+            <Navbar />
+
+            {children}
+            </Transition>
+        {/* </Enter> */}
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import BuyCard from "@/components/buy-card";
+import BuyCard from "@/components/buy-card/BuyCard";
 
 function Page() {
   return (

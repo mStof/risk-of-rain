@@ -36,7 +36,7 @@ const Index = () => {
   });
 
   return (
-    <div ref={triggerRef}>
+    <div ref={triggerRef} id="endTriggerSection">
       <section ref={sectionRef} className="h-screen w-[400vw] flex">
         <Part1 />
         <Part2 />

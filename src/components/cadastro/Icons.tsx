@@ -1,21 +1,52 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Apple, CaseIcon, Google } from "../icons";
-import { useSignInWithFacebook, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithFacebook,
+  useSignInWithGoogle
+} from "react-firebase-hooks/auth";
 import { auth } from "@/services/database/FirebaseConfig";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect
+} from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 const Icons = () => {
-  const [signInWithGoogle, error] = useSignInWithGoogle(auth);
   const [signInWithFacebook, errorFB] = useSignInWithFacebook(auth);
-  
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const handleSignInWithGoogle = async () => {
+    setLoading(true);
     try {
-      const res = await signInWithGoogle();
-      console.log(res);
-      console.log(error);
-    }
-    catch (error) {
-      console.error("Erro ao entrar com o Google:", error);
+      const provider = new GoogleAuthProvider();
+
+      // Configurações para melhor UX
+      provider.setCustomParameters({
+        prompt: "select_account"
+      });
+
+      // Tenta popup primeiro, se falhar usa redirect
+      try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("Usuário Google:", result.user);
+        router.push("/");
+      } catch (popupError: any) {
+        if (popupError.code === "auth/popup-blocked") {
+          console.log("Popup bloqueado, usando redirect...");
+          await signInWithRedirect(auth, provider);
+        } else {
+          throw popupError;
+        }
+      }
+    } catch (error: any) {
+      console.error("Erro Google:", error);
+      alert(`Erro: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -24,8 +55,7 @@ const Icons = () => {
       const res = await signInWithFacebook();
       console.log(res);
       console.log(errorFB);
-    }
-    catch (error) {
+    } catch (error) {
       console.error("Erro ao entrar com o Google:", error);
     }
   };
@@ -33,14 +63,14 @@ const Icons = () => {
   return (
     <div className="flex gap-40 justify-center w-full">
       <CaseIcon
-      colors="base"
+        colors={loading ? "error" :"base"}
         onClick={handleSignInWithGoogle}
         sizes="lg"
-        Icon={<Google className="text-h6" />}
+        Icon={<Google fill={loading ? "#dc3957" : undefined} className="text-h6" />}
         desc="Entrar com o Google"
       />
       <CaseIcon
-      colors="base"
+        colors="base"
         onClick={handleSignInWithFacebook}
         sizes="lg"
         Icon={<Apple className="text-h6" />}

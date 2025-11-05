@@ -13,19 +13,22 @@ const Index = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
-
+    console.log(scrollProgress);
+    
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
     if (!sectionInfos.current) return;
     const sections =
-      sectionInfos.current?.querySelectorAll(".section").length - 1;
-
-    const eachProgress = heightSize / sections;
-    const currentSection = Math.floor(scrollProgress / eachProgress);
+      sectionInfos.current?.querySelectorAll(".section").length -1;
+      
+      const eachProgress = heightSize / sections;
+      const currentSection = Math.floor((Math.ceil(scrollProgress) / eachProgress));
+      console.log(sections, currentSection, scrollProgress, eachProgress  );
     const listItems = listRef.current?.querySelectorAll("li > div");
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
-    for (let i = 0; i <= currentSection; i++) {
+    for (let i = 0; i < currentSection+1; i++) {
+      
       if (listItems) listItems[i].setAttribute("data-progress", "true");
     }
   };
@@ -35,7 +38,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="bg-(image:--bg-pattern) h-fit flex">
+    <main className="bg-(image:--bg-pattern) h-fit flex manda overflow-hidden">
       <article className="fixed bg-dark-09 border-r-4 border-dashed border-r-secondary-01 w-max-80 w-max h-full pl-8 pr-20 flex">
         <Link
           href="./../../"
@@ -148,9 +151,9 @@ const Index = () => {
 
       <section
         ref={sectionInfos}
-        className="flex flex-col items-center w-full h-fit"
+        className="flex flex-col items-center w-full h-fit snap-y snap-mandatory "
       >
-        <div className="section flex justify-center gap-20 flex-col ml-64 w-min h-screen">
+        <div className="snap-center section flex justify-center gap-20 flex-col ml-64 w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             conheça nosso app
           </h1>
@@ -172,7 +175,7 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             navegação principal
           </h1>
@@ -187,7 +190,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             gerenciamento do <br /> ambiente
           </h1>
@@ -202,7 +205,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             controle rapido
           </h1>
@@ -217,7 +220,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             status dos <br /> dispositivos
           </h1>
@@ -231,7 +234,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             gerenciamento de <br />
             perfil
@@ -247,7 +250,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             historico de eventos
           </h1>

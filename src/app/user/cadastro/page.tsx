@@ -3,7 +3,7 @@ import Icons from "@/components/cadastro/Icons";
 import Link from "next/link";
 import React from "react";
 
-const Login = () => {
+const Cadastro = () => {
   return (
     <main className="bg-(image:--bg-pattern) bg-dark-10 text-secondary-10 flex justify-center items-center h-svh w-full">
       <section className="bg-dark-10 p-10 border-2 border-secondary-01 min-w-[480px] flex flex-col">
@@ -36,4 +36,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Cadastro;

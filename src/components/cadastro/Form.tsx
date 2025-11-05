@@ -11,12 +11,14 @@ import { cpfMask } from "@/utils/masks/cepMask";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/services/database/FirebaseConfig";
 import { useRealTimeFirebase } from "@/services/database/useRealTimeFirebase";
+import { useRouter } from "next/navigation";
 
 const Form = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const router = useRouter();
+  const [createUserWithEmailAndPassword, u, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [authError, setAuthError] = useState("");
-  const {insertUser} = useRealTimeFirebase();
+  const { insertUser } = useRealTimeFirebase();
   const {
     register,
     handleSubmit,
@@ -51,9 +53,9 @@ const Form = () => {
       if (error?.message) throw error.code;
       insertUser(data);
       console.log(res);
+      router.push("/");
+
       reset();
-
-
     } catch (error: any) {
       const errMsg =
         error === "auth/email-already-in-use" ? "Email já está em uso" : error;
@@ -153,7 +155,6 @@ const Form = () => {
           title="Cadastre-se"
           states={loading ? "disabled" : "base"}
         />
-
       </div>
     </form>
   );
