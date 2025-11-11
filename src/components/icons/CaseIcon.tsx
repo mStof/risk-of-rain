@@ -60,7 +60,7 @@ const SvgComponent = ({
   ...props
 }: IconStyleProps) => {
   const { base, line1, line2, line3, line4 } = iconStyle({ colors, sizes });
-  const { setSelected } = useMouse();
+  const {setSelected} = useMouse();
 
   return (
     <div

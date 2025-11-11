@@ -3,7 +3,6 @@ import { tv, type VariantProps } from "tailwind-variants";
 import { HTMLAttributes } from "react";
 import { useMouse } from "@/context/useMouse";
 import Image from "next/image";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/services/database/FirebaseConfig";
 import test from "@/../public/img/perfil.jpg";
 
@@ -14,8 +13,7 @@ const iconStyle = tv({
     line2: "bg-secondary-01 h-full w-1 absolute z-50",
     line3:
       "bg-secondary-01 h-full w-1 left-full -translate-x-full absolute z-50",
-    line4:
-      "bg-secondary-01 h-1 w-full top-full -translate-y-full absolute z-50"
+    line4: "bg-secondary-01 h-1 w-full top-full -translate-y-full absolute z-50"
   },
   variants: {
     sizes: {
@@ -23,7 +21,14 @@ const iconStyle = tv({
       md: { base: "size-6" },
       md2: { base: "size-8" },
       lg: { base: "size-10" },
-      lg2: { base: "size-20" }
+      lg2: { base: "size-20" },
+      lineSm: {
+        base: "size-8",
+        line1:"h-0.5",
+        line2:"w-0.5",
+        line3:"w-0.5",
+        line4:"h-0.5",
+      }
     }
   },
   defaultVariants: {
@@ -33,20 +38,25 @@ const iconStyle = tv({
 type IconStyleProps = VariantProps<typeof iconStyle> &
   HTMLAttributes<HTMLDivElement> & {
     desc?: string;
+    img: string;
   };
 
-const PerfilCase = ({ sizes, desc, className, ...props }: IconStyleProps) => {
+const PerfilCase = ({
+  sizes,
+  desc,
+  img,
+  className,
+  ...props
+}: IconStyleProps) => {
   const { base, line1, line2, line3, line4 } = iconStyle({ sizes });
   const { setSelected } = useMouse();
-  const [user, loading, error] = useAuthState(auth);
-console.log(user);
 
   return (
     <div
       {...props}
       onMouseEnter={() => setSelected(true)}
       onMouseLeave={() => setSelected(false)}
-      className={base({className})}
+      className={base({ className })}
       title={desc}
     >
       <span className={line1()}></span>
@@ -56,7 +66,7 @@ console.log(user);
       <div className="rotate-0 flex items-center justify-center size-full overflow-hidden bg-emerald-500">
         <div className=" size-full scale-135 rotate-45">
           <Image
-            src={user?.photoURL ? user.photoURL : test}
+            src={img ? img : test}
             width={500}
             height={500}
             quality={100}

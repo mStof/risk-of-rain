@@ -1,9 +1,16 @@
+"use client";
 import Form from "@/components/cadastro/Form";
 import Icons from "@/components/cadastro/Icons";
 import Link from "next/link";
-import React from "react";
+import { redirect } from "next/navigation";
+import React, { useEffect } from "react";
 
 const Cadastro = () => {
+  useEffect(() => {
+    const hasUser = sessionStorage.getItem("logged");
+    if (hasUser) redirect("/user/perfil");
+  }, []);
+
   return (
     <main className="bg-(image:--bg-pattern) bg-dark-10 text-secondary-10 flex justify-center items-center h-svh w-full">
       <section className="bg-dark-10 p-10 border-2 border-secondary-01 min-w-[480px] flex flex-col">

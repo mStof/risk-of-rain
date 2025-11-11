@@ -23,7 +23,12 @@ const Navbar = () => {
 
   const { setSelected } = useMouse();
 
-  const [user, loading, error] = useAuthState(auth);
+  // const [user, loading, error] = useAuthState(auth);
+  const user = {
+    displayName: "test"
+  };
+  
+  
 
   useGSAP(() => {});
   const handleOpenNav = contextSafe(() => {
@@ -114,47 +119,47 @@ const Navbar = () => {
                 </p>
               }
             />
-            <p className="hidden group-hover:block group-[:not(:hover)]:delay-1000 group-hover:w-full w-0 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none hidden group-hover:block group-[:not(:hover)]:delay-1000 group-hover:w-full w-0 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               Risk of RAin
             </p>
           </Link>
         </div>
         <div className="border-b border-secondary-01 w-full  group-hover:justify-start gap-2 px-2 py-4">
           <Link href="/infos/slug" className="flex items-center w-full">
-            <p className="text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
+            <p className="pointer-events-none text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
               I.
             </p>
-            <p className="group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               como usar
             </p>
           </Link>
         </div>
         <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
           <Link href="/infos/slug" className="flex items-center w-full">
-            <p className="text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
+            <p className="pointer-events-none text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
               II.
             </p>
-            <p className="group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               sobre o sistema
             </p>
           </Link>
         </div>
         <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
           <Link href="/infos/slug" className="flex items-center w-full">
-            <p className="text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
+            <p className="pointer-events-none text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
               III.
             </p>
-            <p className="group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               central do projeto
             </p>
           </Link>
         </div>
         <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
           <Link href="/infos/slug" className="flex items-center w-full">
-            <p className="text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase ">
+            <p className="pointer-events-none text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase ">
               Iv.
             </p>
-            <p className="group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               detalhes da instalação
             </p>
           </Link>
@@ -163,16 +168,16 @@ const Navbar = () => {
           className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4"
           onClick={() => setIsOpen(true)}
         >
-          <p className="text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
+          <p className="pointer-events-none text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
             C.
           </p>
-          <p className="group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+          <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
             comprar
           </p>
         </div>
         <div className="border-y border-secondary-01 w-full flex items-center gap-4 px-4 py-4 mt-auto">
           <Link href="/user/perfil" className="flex items-center w-full gap-4">
-            <PerfilCase sizes="md2" />
+            {/* <PerfilCase sizes="md2" /> */}
             <p className="group-hover:w-full w-0 hidden group-hover:block group-[:not(:hover)]:delay-1000  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6 lowercase">
               {user?.displayName}
             </p>

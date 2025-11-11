@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Apple, CaseIcon, Google } from "../icons";
 import {
   useSignInWithFacebook,
@@ -10,12 +10,13 @@ import { auth } from "@/services/database/FirebaseConfig";
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect
+  signInWithRedirect,
+  OAuthProvider,
+  FacebookAuthProvider
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 const Icons = () => {
-  const [signInWithFacebook, errorFB] = useSignInWithFacebook(auth);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -33,6 +34,7 @@ const Icons = () => {
       try {
         const result = await signInWithPopup(auth, provider);
         console.log("Usuário Google:", result.user);
+        sessionStorage.setItem("logged", "true");
         router.push("/");
       } catch (popupError: any) {
         if (popupError.code === "auth/popup-blocked") {
@@ -49,14 +51,35 @@ const Icons = () => {
       setLoading(false);
     }
   };
-
-  const handleSignInWithFacebook = async () => {
+  
+  const handleSignInWithApple = async () => {
+    setLoading(true);
     try {
-      const res = await signInWithFacebook();
-      console.log(res);
-      console.log(errorFB);
-    } catch (error) {
-      console.error("Erro ao entrar com o Google:", error);
+      const provider = new FacebookAuthProvider();
+
+      // Configurações para melhor UX
+      provider.setCustomParameters({
+        prompt: "select_account"
+      });
+
+      // Tenta popup primeiro, se falhar usa redirect
+      try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("Usuário Apple:", result.user);
+        router.push("/");
+      } catch (popupError: any) {
+        if (popupError.code === "auth/popup-blocked") {
+          console.log("Popup bloqueado, usando redirect...");
+          await signInWithRedirect(auth, provider);
+        } else {
+          throw popupError;
+        }
+      }
+    } catch (error: any) {
+      console.error("Erro Apple:", error);
+      alert(`Erro: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,7 +94,7 @@ const Icons = () => {
       />
       <CaseIcon
         colors="base"
-        onClick={handleSignInWithFacebook}
+        onClick={handleSignInWithApple}
         sizes="lg"
         Icon={<Apple className="text-h6" />}
         desc="Entrar com a Apple"

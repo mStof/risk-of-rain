@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import test from "@/../public/logo.svg";
 import proposito from "@/../public/img/infos/proposito.png";
 import mobile from "@/../public/img/infos/mobile.png";
 import dispositivo from "@/../public/img/infos/dispositivo.png";
@@ -11,7 +10,7 @@ const CardsContainer = () => {
   return (
     <section className="h-fit w-auto flex flex-col gap-4 px-40 py-20">
         <h6 className="text-h6 font-major-mono-display leading-8">Infos.</h6>
-        <div className="flex flex-wrap gap-20 justify-between">
+        <div className="flex flex-wrap gap-y-20 justify-between">
           <Card
             title="como usar"
             subtitle="usabilidade"

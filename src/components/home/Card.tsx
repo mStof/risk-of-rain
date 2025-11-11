@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { createElement, useRef } from "react";
+import React, { useRef } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

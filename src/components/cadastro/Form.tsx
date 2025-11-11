@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 
 const Form = () => {
   const router = useRouter();
-  const [createUserWithEmailAndPassword, u, loading, error] =
+  const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [authError, setAuthError] = useState("");
   const { insertUser } = useRealTimeFirebase();
@@ -46,13 +46,10 @@ const Form = () => {
   const handleFormSubmit = async (data: userSchemaType) => {
     setAuthError("");
     try {
-      const res = await createUserWithEmailAndPassword(
-        data.email,
-        data.password
-      );
+      await createUserWithEmailAndPassword(data.email, data.password);
       if (error?.message) throw error.code;
-      insertUser(data);
-      console.log(res);
+      insertUser({...data, tel:""});
+      sessionStorage.setItem("logged", "true");
       router.push("/");
 
       reset();

@@ -1,22 +1,42 @@
 "use client";
 import { useMouse } from "@/context/useMouse";
-import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
+
+gsap.registerPlugin(useGSAP);
 
 export const Mouse = () => {
-  const [coordenates, setCoordenates] = useState({ x: 20, y: 20 });
-  const {selected, setSelected} = useMouse();
+  const xTo = useRef<gsap.QuickToFunc>(null);
+  const yTo = useRef<gsap.QuickToFunc>(null);
+  const mouseRef = useRef<HTMLDivElement>(null);
+  const { selected } = useMouse();
 
-  useEffect(() => {
-    setSelected(false);
-    window.addEventListener("mousemove", (e) => {
-      const x = e.x;
-      const y = e.y;
-      setCoordenates({ x, y });
+  const { contextSafe } = useGSAP(() => {
+    xTo.current = gsap.quickTo(mouseRef.current, "x", {
+      duration: 0.1,
     });
-  }, [setSelected]);
+
+    yTo.current = gsap.quickTo(mouseRef.current, "y", {
+      duration: 0.1,
+    });
+    const handleMove = contextSafe((e: MouseEvent) => {      
+      if (xTo.current && yTo.current) {
+        xTo?.current(e.x);
+        yTo?.current(e.y);
+      };
+    });
+    
+    window.addEventListener("mousemove", handleMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+    };
+    
+  }, []);
+
   return (
     <div
-      style={{ left: coordenates.x, top: coordenates.y }}
+      ref={mouseRef}
       className="size-8 rounded-full fixed -translate-1/2 pointer-events-none  cursor-none mix-blend-difference z-90"
     >
       <svg

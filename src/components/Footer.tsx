@@ -54,7 +54,7 @@ const Footer = () => {
                 </li>
                 <li className="w-fit flex flex-col-reverse gap-0.5">
                   <span className="bg-secondary-10 h-px w-full block"></span>
-                  <Link href="/infos/prosito">
+                  <Link href="/infos/proposito">
                     Propósito: Central do projeto
                   </Link>
                 </li>

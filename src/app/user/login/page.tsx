@@ -1,18 +1,23 @@
-import { Apple, CaseIcon, Google } from "@/components/icons";
+"use client";
+import Icons from "@/components/cadastro/Icons";
+import Form from "@/components/login/Form";
+import Link from "@/components/Link";
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
-import Link from "next/link";
-import Form from "./Form";
 const Login = () => {
+  useEffect(() => {
+    const hasUser = sessionStorage.getItem("logged");
+    if (hasUser) redirect("/user/perfil");
+  }, []);
 
   return (
     <main className="bg-(image:--bg-pattern) bg-dark-10 text-secondary-10 flex justify-center items-center h-svh w-full">
-      <div
-        className="bg-dark-10 p-10 border-2 border-secondary-01 min-w-[480px] flex flex-col"
-      >
+      <div className="bg-dark-10 p-10 border-2 border-secondary-01 min-w-[480px] flex flex-col">
         <h1 className="text-h6 font-major-mono-display leading-8 text-center">
           Realize o login
         </h1>
-       <Form />
+        <Form />
         <div className="flex flex-col gap-4 mt-4">
           <div className="w-full flex items-center gap-4">
             <span className="bg-secondary-01 flex-1 h-0.5 "></span>
@@ -21,18 +26,7 @@ const Login = () => {
             </p>
             <span className="bg-secondary-01 flex-1 h-0.5 "></span>
           </div>
-          <div className="flex gap-40 justify-center w-full">
-            <CaseIcon
-              sizes="lg"
-              Icon={<Google className="text-h6" />}
-              desc="Entrar com o Google"
-            />
-            <CaseIcon
-              sizes="lg"
-              Icon={<Apple className="text-h6" />}
-              desc="Entrar com a Apple"
-            />
-          </div>
+          <Icons />
         </div>
         <Link
           href="/user/cadastro"
