@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <main
       ref={containerRef}
-      className="bg-neutral-bg bg-(image:--bg-pattern) overflow-hidden relative text-secondary-01"
+      className="bg-neutral-bg bg-(image:--bg-pattern) overflow-hidden relative text-secondary-10"
     >
       <div
         ref={cameraRef}
