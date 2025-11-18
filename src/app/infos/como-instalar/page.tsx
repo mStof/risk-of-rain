@@ -1,6 +1,8 @@
 "use client";
 import Link from "@/components/Link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import home from "@/../public/img/infos/como_usar/home.png";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
@@ -14,21 +16,19 @@ const Index = () => {
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
     console.log(scrollProgress);
-    
+
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
     if (!sectionInfos.current) return;
     const sections =
-      sectionInfos.current?.querySelectorAll(".section").length -1;
-      
-      const eachProgress = heightSize / sections;
-      const currentSection = Math.floor((Math.ceil(scrollProgress) / eachProgress));
-      console.log(sections, currentSection, scrollProgress, eachProgress  );
+      sectionInfos.current?.querySelectorAll(".section").length - 1;
+
+    const eachProgress = heightSize / sections;
+    const currentSection = Math.floor(Math.ceil(scrollProgress) / eachProgress);
     const listItems = listRef.current?.querySelectorAll("li > div");
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
-    for (let i = 0; i < currentSection+1; i++) {
-      
+    for (let i = 0; i < currentSection + 1; i++) {
       if (listItems) listItems[i].setAttribute("data-progress", "true");
     }
   };
@@ -64,69 +64,96 @@ const Index = () => {
               data-progress={true}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Conheça nosso app
-            </p>
+            <Link
+              href={"/infos/como-usar#knowApp"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              Detalhes da intalação.
+            </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
             <div
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Navegação Principal.
-            </p>
+            <Link
+              href={"/infos/como-usar#firtsNav"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              Sistema e componentes.
+            </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
             <div
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Geraciamento do ambiente.
-            </p>
+            <Link
+              href={"/infos/como-usar#gerencAmbien"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              Preparação e compatibilidade.
+            </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
             <div
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Controle rápido.
-            </p>
+            <Link
+              href={"/infos/como-usar#fastControl"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              intalação.
+            </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
             <div
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Status do dispositivo.
-            </p>
+            <Link
+              href={"/infos/como-usar#status"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              Sensor de chuva.
+            </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
             <div
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Configuração de perfil.
-            </p>
+            <Link
+              href={"/infos/como-usar#gerencPerfil"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              Configuração inicial.
+            </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
             <div
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Histórico de eventos.
-            </p>
+            <Link
+              href={"/infos/como-usar#histEvent"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+            >
+              Testagem de automação.
+            </Link>
           </li>
         </ul>
       </article>
       {/* Just to fill the space */}
       <div className="opacity-0 w-max-80 w-max h-full pl-8 pr-20 flex -z-40">
-        
         <ul className="my-auto flex flex-col gap-8 list-disc ml-4">
           <li className="isolate flex gap-2 items-center">
             Navegação Principal.
@@ -147,121 +174,139 @@ const Index = () => {
         </ul>
       </div>
 
-      <div className="fixed w-3/12 h-10/12 bg-red-700 inset-0 translate-x-3/4 self-center"></div>
+      <div className="fixed w-3/12 h-10/12 bg-red-700 inset-0 translate-x-3/4 self-center">
+        <Image src={home} alt="home" className="h-full w-auto object-cover" />
+      </div>
 
       <section
         ref={sectionInfos}
         className="flex flex-col items-center w-full h-fit snap-y snap-mandatory "
       >
-        <div className="snap-center section flex justify-center gap-20 flex-col ml-64 w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            conheça nosso app
+        <div
+          id="knowApp"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            detalhes da <br/> intalação
           </h1>
           <div className="flex flex-col gap-6">
             <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-              O controle do sistema é feito através de um aplicativo móvel
-              intuitivo, que permite o gerenciamento remoto dos dispositivos, a
-              visualização de dados em tempo real e o acesso a um histórico de
-              eventos.
+              A instalação do Risk Of Rain (ROR) foi projetada para ser simples
+              e adaptável, minimizando a necessidade de reformas ou intervenções
+              complexas.O sistema consiste em componentes modulares — o sensor
+              de chuva, o motor e o controlador Arduino — que se integram de
+              forma precisa às janelas e portas existentes.
             </p>
             <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-              Os principais diferenciais do projeto incluem seu custo-benefício,
-              que o torna acessível a um público amplo, e a acessibilidade
-              aprimorada para usuários como idosos ou pessoas com mobilidade
-              reduzida. Além disso, o design modular e expansível do sistema
-              garante que ele possa ser adaptado e aprimorado com novas
-              funcionalidades no futuro.
+              Utilizamos motores adaptáveis compatíveis com diversos modelos de
+              esquadrias e um sistema de encaixe que se ajusta ao mecanismo
+              específico de cada estrutura. Todo o processo, desde a fixação
+              física até a configuração via aplicativo, é guiado para garantir
+              uma resposta rápida e confiável do seu sistema de automação.
             </p>
           </div>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            navegação principal
+        <div
+          id="firtsNav"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            sistema e <br/> componentes
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            A navegação do nosso aplicativo é desenhada para ser simples e
-            rápida. A barra de navegação na parte inferior da tela serve como
-            seu guia principal, com ícones claros para cada seção: Home,
-            Janelas, Adicionar Dispositivo, Histórico e Perfil. Com um toque,
-            você muda de tela e tem acesso imediato às diferentes
-            funcionalidades, com o ícone ativo sempre indicando onde você está.
-            Isso torna a experiência de uso fluida e fácil para qualquer pessoa.
+            O sistema ROR é composto por um conjunto de hardware e software que
+            trabalham em conjunto. Os principais componentes físicos são o
+            sensor de chuva (Módulo Sensor de Chuva) que detecta as primeiras
+            gotas, o controlador (Placa Arduino ou ESP32) que processa o sinal,
+            e os motores adaptáveis (Motor com Caixa de Redução) que realizam a
+            ação de fechar as janelas. O sistema também utiliza módulos de
+            controle de direção (Módulo Driver Ponte H - L298N)e cabos para
+            conexão.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            gerenciamento do <br /> ambiente
+        <div
+          id="gerencAmbien"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            preparação e <br/> compatibiliadeda janela
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            O gerenciamento do ambiente é centralizado para oferecer controle
-            total sobre a sua casa. A interface do aplicativo permite que você
-            veja o status geral do seu módulo de automação e execute comandos
-            que afetam todas as janelas ao mesmo tempo, como &#34;Fechar
-            tudo&#34;. Além disso, você pode monitorar as condições climáticas
-            gerais do ambiente, como temperatura e umidade, garantindo uma visão
-            completa e descomplicada do seu lar.
+            O sistema ROR foi projetado com flexibilidade para ser compatível
+            com diversos modelos de janelas. Antes da instalação, é fundamental
+            verificar a estrutura da esquadria. A quantidade de motores a serem
+            instalados pode ser ajustada conforme a necessidade específica do
+            cliente e da estrutura de cada janela.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            controle rapido
+        <div
+          id="fastControl"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            instalação do <br/> produto
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            Na parte superior da tela principal, você encontra comandos rápidos
-            que oferecem controle imediato sobre o seu sistema. Com um único
-            toque, é possível verificar a conexão Wi-Fi, fechar todas as janelas
-            de uma vez para maior segurança e consultar a temperatura e a
-            umidade do ambiente. Essa funcionalidade foi pensada para situações
-            de urgência e para fornecer informações essenciais de forma prática
-            e instantânea.
+            O sistema ROR foi projetado com flexibilidade para ser compatível
+            com diversos modelos de janelas. Antes da instalação, é fundamental
+            verificar a estrutura da esquadria. A quantidade de motores a serem
+            instalados pode ser ajustada conforme a necessidade específica do
+            cliente e da estrutura de cada janela.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            status dos <br /> dispositivos
+        <div
+          id="status"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            conexão do <br/> sensor de chuva
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            A seção principal do aplicativo exibe de forma clara e objetiva o
-            status de cada janela. Cada cartão na lista representa um
-            dispositivo, mostrando uma imagem do cômodo e o nome da janela (por
-            exemplo, &#34;Janela do quarto&#34;). A chave seletora ao lado do
-            nome permite abrir ou fechar a janela com um simples toque, dando a
-            você total controle manual.
+            O sensor de chuva deve ser instalado em um local estratégico, como o
+            telhado, onde possa detectar as primeiras gotas com rapidez. O sinal
+            captado pelo sensor é enviado ao controlador Arduino/ESP.A
+            tecnologia Arduino permite uma integração precisa e programação
+            personalizada entre os sensores e os motores, assegurando uma
+            resposta rápida e confiável do sistema.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            gerenciamento de <br />
-            perfil
+        <div
+          id="gerencPerfil"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            configurações <br/> inicial do App
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            Na tela de Perfil, o usuário pode gerenciar todas as informações da
-            sua conta. Você pode visualizar e editar seus dados pessoais, como
-            nome de usuário, e-mail e senha. Além disso, a seção
-            &#34;Dispositivos na conta&#34; lista todos os módulos de automação
-            vinculados ao seu perfil, facilitando o acompanhamento de seus
-            aparelhos. O botão de Deslogar garante a sua privacidade e segurança
-            ao encerrar a sessão.
+            O sensor de chuva deve ser instalado em um local estratégico, como o
+            telhado, onde possa detectar as primeiras gotas com rapidez. O sinal
+            captado pelo sensor é enviado ao controlador Arduino/ESP.A
+            tecnologia Arduino permite uma integração precisa e programação
+            personalizada entre os sensores e os motores, assegurando uma
+            resposta rápida e confiável do sistema.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            historico de eventos
+        <div
+          id="histEvent"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            testagem de <br/> automação
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            A seção de Histórico é uma linha do tempo completa de todas as
-            atividades do seu sistema de automação. Nela, você pode ver um
-            registro detalhado de quando cada janela foi aberta ou fechada, com
-            indicação da data e hora exatas. Essa funcionalidade é crucial para
-            monitorar a segurança da sua casa, confirmando se as janelas foram
-            fechadas automaticamente em caso de chuva ou se alguém as operou
-            manualmente.
+            A fase final envolve a validação da usabilidade e a testagem do
+            sistema. É crucial garantir que o sistema interprete corretamente o
+            sinal de chuva e ative o motor para fechar a janela
+            automaticamente.O aplicativo oferece feedback visual imediato
+            através de animações e um módulo histórico que registra todas as
+            operações realizadas, permitindo ao usuário monitorar e confirmar a
+            eficácia da automação
           </p>
         </div>
       </section>

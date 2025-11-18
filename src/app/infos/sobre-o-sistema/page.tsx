@@ -1,6 +1,7 @@
 "use client";
 import Link from "@/components/Link";
 import { useEffect, useRef, useState } from "react";
+import { VRButton } from "three/examples/jsm/Addons.js";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
@@ -14,21 +15,20 @@ const Index = () => {
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
     console.log(scrollProgress);
-    
+
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
     if (!sectionInfos.current) return;
     const sections =
-      sectionInfos.current?.querySelectorAll(".section").length -1;
-      
-      const eachProgress = heightSize / sections;
-      const currentSection = Math.floor((Math.ceil(scrollProgress) / eachProgress));
-      console.log(sections, currentSection, scrollProgress, eachProgress  );
+      sectionInfos.current?.querySelectorAll(".section").length - 1;
+
+    const eachProgress = heightSize / sections;
+    const currentSection = Math.floor(Math.ceil(scrollProgress) / eachProgress);
+    console.log(sections, currentSection, scrollProgress, eachProgress);
     const listItems = listRef.current?.querySelectorAll("li > div");
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
-    for (let i = 0; i < currentSection+1; i++) {
-      
+    for (let i = 0; i < currentSection + 1; i++) {
       if (listItems) listItems[i].setAttribute("data-progress", "true");
     }
   };
@@ -65,7 +65,7 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Conheça nosso app
+              Sobre o sistema.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -74,7 +74,7 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Navegação Principal.
+              Motivação e Origem.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -83,7 +83,7 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Geraciamento do ambiente.
+              Componentes Principais.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -92,7 +92,7 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Controle rápido.
+              Funcionamento Autôno.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -101,7 +101,7 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Status do dispositivo.
+              Design e Metodologia.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -110,7 +110,7 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Configuração de perfil.
+              Flexibilidade e Adaptação.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -119,14 +119,13 @@ const Index = () => {
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
             <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Histórico de eventos.
+              Impacto e Relevância.
             </p>
           </li>
         </ul>
       </article>
       {/* Just to fill the space */}
       <div className="opacity-0 w-max-80 w-max h-full pl-8 pr-20 flex -z-40">
-        
         <ul className="my-auto flex flex-col gap-8 list-disc ml-4">
           <li className="isolate flex gap-2 items-center">
             Navegação Principal.
@@ -153,46 +152,43 @@ const Index = () => {
         ref={sectionInfos}
         className="flex flex-col items-center w-full h-fit snap-y snap-mandatory "
       >
-        <div className="snap-center section flex justify-center gap-20 flex-col ml-64 w-min h-screen">
+        <div className="snap-center section flex justify-center gap-20 flex-col ml-64 w-[37.75rem] h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            conheça nosso app
+            sobre o sistema
           </h1>
           <div className="flex flex-col gap-6">
             <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-              O controle do sistema é feito através de um aplicativo móvel
-              intuitivo, que permite o gerenciamento remoto dos dispositivos, a
-              visualização de dados em tempo real e o acesso a um histórico de
-              eventos.
-            </p>
-            <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-              Os principais diferenciais do projeto incluem seu custo-benefício,
-              que o torna acessível a um público amplo, e a acessibilidade
-              aprimorada para usuários como idosos ou pessoas com mobilidade
-              reduzida. Além disso, o design modular e expansível do sistema
-              garante que ele possa ser adaptado e aprimorado com novas
-              funcionalidades no futuro.
+              Um avançado sistema de automação residencial inteligente foi
+              desenvolvido com o propósito de proteger bens materiais contra os
+              efeitos das mudanças climáticas, oferecendo uma solução moderna e
+              eficiente, especialmente em períodos de chuva intensa.
+              Com tecnologia de ponta, o sistema elimina a
+              necessidade de intervenções manuais, como o fechamento de janelas,
+              portas e lonas, proporcionando aos usuários maior segurança,
+              conforto, praticidade e ainda contribuindo para a economia e o uso
+              consciente da energia.
             </p>
           </div>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            navegação principal
+            motivação e origem
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            A navegação do nosso aplicativo é desenhada para ser simples e
-            rápida. A barra de navegação na parte inferior da tela serve como
-            seu guia principal, com ícones claros para cada seção: Home,
-            Janelas, Adicionar Dispositivo, Histórico e Perfil. Com um toque,
-            você muda de tela e tem acesso imediato às diferentes
-            funcionalidades, com o ícone ativo sempre indicando onde você está.
-            Isso torna a experiência de uso fluida e fácil para qualquer pessoa.
+            A ideia para o projeto surgiu da vivência dos próprios criadores,
+            que enfrentaram perdas materiais e preocupações causadas por chuvas
+            repentinas. Essa motivação se transformou em uma proposta
+            tecnológica com impacto social e econômico. O projeto é uma resposta
+            direta aos desafios impostos pelas mudanças climáticas, que têm
+            intensificado eventos de chuva extrema, afetando a segurança e a
+            qualidade de vida da população.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            gerenciamento do <br /> ambiente
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            componentes <br/> principais
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O gerenciamento do ambiente é centralizado para oferecer controle
@@ -206,62 +202,59 @@ const Index = () => {
         </div>
 
         <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            controle rapido
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            funcionamento <br /> autôno
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            Na parte superior da tela principal, você encontra comandos rápidos
-            que oferecem controle imediato sobre o seu sistema. Com um único
-            toque, é possível verificar a conexão Wi-Fi, fechar todas as janelas
-            de uma vez para maior segurança e consultar a temperatura e a
-            umidade do ambiente. Essa funcionalidade foi pensada para situações
-            de urgência e para fornecer informações essenciais de forma prática
-            e instantânea.
+            O sensor, instalado em uma área externa, como o telhado, aciona
+            automaticamente os motores quando detecta chuva, garantindo um
+            fechamento rápido e eficiente das janelas. O sistema opera de forma
+            autônoma, eliminando a necessidade de intervenção manual. Embora o
+            sistema realize suas ações sem necessidade de comando humano, ele
+            também pode ser controlado remotamente através de um aplicativo.
           </p>
         </div>
 
         <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            status dos <br /> dispositivos
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            desing e <br /> metodologia
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            A seção principal do aplicativo exibe de forma clara e objetiva o
-            status de cada janela. Cada cartão na lista representa um
-            dispositivo, mostrando uma imagem do cômodo e o nome da janela (por
-            exemplo, &#34;Janela do quarto&#34;). A chave seletora ao lado do
-            nome permite abrir ou fechar a janela com um simples toque, dando a
-            você total controle manual.
+            O desenvolvimento do projeto seguiu os princípios do Design
+            Thinking, um processo centrado no ser humano que busca a inovação.
+            As etapas incluíram a fase de imersão, com extensa pesquisa e
+            análise de concorrentes, a definição do problema e público-alvo, a
+            ideação para a criação de soluções, a prototipagem para transformar
+            as ideias em representações tangíveis e a testagem para validar e
+            refinar as soluções antes da implementação final.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            gerenciamento de <br />
-            perfil
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            flexibilidade e <br /> adaptação
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            Na tela de Perfil, o usuário pode gerenciar todas as informações da
-            sua conta. Você pode visualizar e editar seus dados pessoais, como
-            nome de usuário, e-mail e senha. Além disso, a seção
-            &#34;Dispositivos na conta&#34; lista todos os módulos de automação
-            vinculados ao seu perfil, facilitando o acompanhamento de seus
-            aparelhos. O botão de Deslogar garante a sua privacidade e segurança
-            ao encerrar a sessão.
+            O sistema é flexível e foi projetado para ser ajustado conforme a
+            necessidade do cliente. A tecnologia dos motores é compatível com
+            diversos modelos de janelas, adaptando-se a diferentes mecanismos.
+            Essa flexibilidade garante que o número de motores possa ser
+            configurado para uma ou mais janelas, tornando a instalação simples
+            e adaptável a diferentes estruturas e residências.
           </p>
         </div>
 
-        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
-          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            historico de eventos
+        <div className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+          <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
+            impacto e <br/> relevância
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            A seção de Histórico é uma linha do tempo completa de todas as
-            atividades do seu sistema de automação. Nela, você pode ver um
-            registro detalhado de quando cada janela foi aberta ou fechada, com
-            indicação da data e hora exatas. Essa funcionalidade é crucial para
-            monitorar a segurança da sua casa, confirmando se as janelas foram
-            fechadas automaticamente em caso de chuva ou se alguém as operou
-            manualmente.
+            A automação residencial, impulsionada pela Internet das Coisas
+            (IoT), oferece maior conforto, segurança e eficiência energética. O
+            projeto ROR se alinha a essa tendência, aumentando a resiliência das
+            comunidades ao proteger bens materiais contra eventos climáticos
+            extremos. Ele promove a inclusão digital e a acessibilidade,
+            beneficiando especialmente idosos e pessoas com mobilidade reduzida.
           </p>
         </div>
       </section>

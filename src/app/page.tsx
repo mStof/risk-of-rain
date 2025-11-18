@@ -33,7 +33,7 @@ export default function Home() {
       y: "0vh"
     });
     cameraTL.to(cameraRef.current, {
-      x: "-40vw",
+      x: "-25vw",
       y: "0vh"
     });
     cameraTL.to(cameraRef.current, {

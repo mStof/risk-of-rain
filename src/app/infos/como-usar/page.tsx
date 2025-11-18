@@ -1,8 +1,7 @@
 "use client";
 import Link from "@/components/Link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import home from "@/../public/img/infos/como_usar/home.png";
+import ImageInfos from "@/components/infos/ImageInfos";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
@@ -15,7 +14,6 @@ const Index = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
-    console.log(scrollProgress);
     
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
@@ -25,7 +23,6 @@ const Index = () => {
       
       const eachProgress = heightSize / sections;
       const currentSection = Math.floor((Math.ceil(scrollProgress) / eachProgress));
-      console.log(sections, currentSection, scrollProgress, eachProgress  );
     const listItems = listRef.current?.querySelectorAll("li > div");
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
@@ -41,7 +38,7 @@ const Index = () => {
 
   return (
     <main className="bg-(image:--bg-pattern) h-fit flex manda overflow-hidden">
-      <article className="fixed bg-dark-09 border-r-4 border-dashed border-r-secondary-01 w-max-80 w-max h-full pl-8 pr-20 flex">
+      <article className="fixed bg-dark-09 border-r-4 border-dashed border-r-secondary-01  w-max-80 w-max h-full pl-8 pr-20 flex">
         <Link
           href="./../../"
           className="flex gap-1 absolute inset-8 w-fit h-fit"
@@ -66,7 +63,7 @@ const Index = () => {
               data-progress={true}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#knowApp"} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#knowApp"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Conheça nosso app
             </Link>
           </li>
@@ -75,7 +72,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#firtsNav"} className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#firtsNav"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Navegação Principal.
             </Link>
           </li>
@@ -84,7 +81,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#gerencAmbien"} className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#gerencAmbien"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Geraciamento do ambiente.
             </Link>
           </li>
@@ -93,7 +90,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#fastControl"} className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#fastControl"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Controle rápido.
             </Link>
           </li>
@@ -102,7 +99,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#status"} className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#status"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Status do dispositivo.
             </Link>
           </li>
@@ -111,7 +108,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#gerencPerfil"} className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#gerencPerfil"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Configuração de perfil.
             </Link>
           </li>
@@ -120,7 +117,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#histEvent"} className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link href={"/infos/como-usar#histEvent"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Histórico de eventos.
             </Link>
           </li>
@@ -149,9 +146,7 @@ const Index = () => {
         </ul>
       </div>
 
-      <div className="fixed w-3/12 h-10/12 bg-red-700 inset-0 translate-x-3/4 self-center">
-        <Image src={home} alt="home" className="h-full w-auto object-cover"/>
-      </div>
+      <ImageInfos progress={progress}/>
 
       <section
         ref={sectionInfos}
@@ -194,7 +189,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="gerencAmbien" className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div id="gerencAmbien" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             gerenciamento do <br /> ambiente
           </h1>
@@ -209,7 +204,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="fastControl" className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
+        <div id="fastControl" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             controle rapido
           </h1>
@@ -224,7 +219,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="status" className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
+        <div id="status" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             status dos <br /> dispositivos
           </h1>
@@ -238,7 +233,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="gerencPerfil" className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div id="gerencPerfil" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             gerenciamento de <br />
             perfil
@@ -254,7 +249,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="histEvent" className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div id="histEvent" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             historico de eventos
           </h1>

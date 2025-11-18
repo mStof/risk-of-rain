@@ -31,9 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none`}
+      data-scroll-behavior="smooth"
+        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none scroll-smooth`}
       >
         <Mouse />
         {/* <Enter> */}

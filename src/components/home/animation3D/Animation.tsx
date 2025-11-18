@@ -1,21 +1,23 @@
 "use client";
 import React, { lazy, useEffect, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 // import { Grub } from "@/utils/models/Grub";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import {
+  DirectionalLight,
   Group,
   Object3DEventMap,
   PerspectiveCamera as TypePerspectiveCamera
 } from "three";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { convertRadiansToDegrees } from "@/functions/convertRadiansToDegrees";
 
 type AnimationType = {
   progressAnim: number;
 };
 
-const GrubLazy = lazy(() => import("@/utils/models/Grub"));
+const CaseNormalLazy = lazy(() => import("@/utils/models/caseNormal"));
 
 const Animation = ({ progressAnim }: AnimationType) => {
   const group = useRef<Group<Object3DEventMap>>(null);
@@ -26,19 +28,27 @@ const Animation = ({ progressAnim }: AnimationType) => {
   useEffect(() => {
     // Crie a função apenas uma vez
     if (!handleAnimationSeekCursorRef.current) {
-      
       handleAnimationSeekCursorRef.current = contextSafe((e: MouseEvent) => {
+        const xDeg =
+          45 +
+          (-30 * (e.clientY - window.innerHeight / 2)) /
+            (-window.innerHeight / 2);
+        const yDeg =
+          90 +
+          (-30 * (e.clientX - window.innerWidth / 2)) /
+            (-window.innerWidth / 2);
+        const [x, y, z] = convertRadiansToDegrees(xDeg, yDeg, xDeg) as number[];
         if (group.current && group.current?.position.x > 0.5) return;
-        gsap.to(group.current?.rotation as gsap.TweenTarget, {
-          x: -0.75 + (e.clientY / window.innerHeight) * 1.5,
-          y: -0.75 + (e.clientX / window.innerWidth) * 1.5
-        });
+        gsap.to(group.current?.rotation as gsap.TweenTarget, { x, y, z });
       });
     }
     window.addEventListener("mousemove", handleAnimationSeekCursorRef.current);
     return () => {
-      if (handleAnimationSeekCursorRef.current) window.removeEventListener("mousemove", handleAnimationSeekCursorRef.current);
-
+      if (handleAnimationSeekCursorRef.current)
+        window.removeEventListener(
+          "mousemove",
+          handleAnimationSeekCursorRef.current
+        );
     };
   }, [contextSafe]); // Executa apenas uma vez para setar a função
 
@@ -53,9 +63,9 @@ const Animation = ({ progressAnim }: AnimationType) => {
 
     const positions = [
       [0, 1, 15],
-      [5.7, 2.9, 6.2],
-      [-6.7, 2.0, 5.4],
-      [-6.7, 2.0, 5.4],
+      [7.85, 0.87, 13.52],
+      [-7.41, 0.24, 11.63],
+      [-7.41, 0.24, 11.63]
     ];
 
     const segment = 1 / 3;
@@ -77,26 +87,32 @@ const Animation = ({ progressAnim }: AnimationType) => {
       y,
       z
     });
+    // window.addEventListener("click", handleClick);
 
     if (progressAnim <= 0 && handleMouseMove) {
       window.addEventListener("mousemove", handleMouseMove);
-
     } else {
-      if (handleMouseMove) window.removeEventListener("mousemove", handleMouseMove);
-      gsap.to(group.current?.rotation as gsap.TweenTarget, {
-        x: 0,
-        y: 0
-      });
+      const [x, y, z] = convertRadiansToDegrees(90, 90, 0) as number[];
+
+      if (handleMouseMove)
+        window.removeEventListener("mousemove", handleMouseMove);
+      gsap.to(group.current?.rotation as gsap.TweenTarget, { x, y, z });
     }
 
     return () => {
-      if (handleMouseMove) window.removeEventListener("mousemove", handleMouseMove);
+      if (handleMouseMove)
+        window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [progressAnim]);
 
   return (
     <>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={10} />
+      <directionalLight position={[-5, 0, 2]} intensity={5} />
+      <directionalLight position={[0, 5, 2]} intensity={5} />
+      <directionalLight position={[0, -5, 2]} intensity={5} />
+      <directionalLight position={[0, 0, 20]} intensity={5} />
+      <directionalLight position={[5, 0, -2]} intensity={5} />
       <OrbitControls />
       <PerspectiveCamera
         ref={cameraRef}
@@ -106,8 +122,8 @@ const Animation = ({ progressAnim }: AnimationType) => {
         far={1000}
         position={[0, 1, 15]}
       />
-      <GrubLazy ref={group}  />
-      {/* <axesHelper args={[300]} /> */}
+      <CaseNormalLazy ref={group} />
+      <axesHelper args={[300]} />
     </>
   );
 };

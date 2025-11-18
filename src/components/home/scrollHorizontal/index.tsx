@@ -37,7 +37,7 @@ const Index = () => {
 
   return (
     <div ref={triggerRef} id="endTriggerSection">
-      <section ref={sectionRef} className="h-screen w-[400vw] flex">
+      <section ref={sectionRef} className="h-screen w-[400vw] flex z-10">
         <Part1 />
         <Part2 />
         <Part3 />

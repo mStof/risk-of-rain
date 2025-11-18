@@ -25,7 +25,7 @@ const Part1 = () => {
     <section
       ref={sectionThree}
       id="sec"
-      className="z-90 opacity-0 w-screen h-full flex justify-center items-end pr-60 flex-col gap-8  translate-x-20"
+      className="z-90 opacity-0 w-screen h-full flex justify-center items-end pr-70 flex-col gap-5  translate-x-20 bg-red-500/0"
     >
       <div className=" w-8/12 h-fit flex flex-col-reverse items-end gap-1">
         <div className="flex items-end h-5 w-full justify-end ">
