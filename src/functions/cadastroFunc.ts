@@ -19,7 +19,7 @@ export const useCadUser = () => {
     try {
         await createUserWithEmailAndPassword(data.email, data.password);
         if (error?.message) throw error.code;
-        insertUser(data);
+        insertUser({...data, tel:"" });
         // setUser({...data, tel:"", });
         router.push("/");
         return null;
