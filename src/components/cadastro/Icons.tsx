@@ -2,23 +2,20 @@
 "use client";
 import React, { useState } from "react";
 import { Apple, CaseIcon, Google } from "../icons";
-import {
-  useSignInWithFacebook,
-  useSignInWithGoogle
-} from "react-firebase-hooks/auth";
 import { auth } from "@/services/database/FirebaseConfig";
 import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithRedirect,
-  OAuthProvider,
   FacebookAuthProvider
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { useRealTimeFirebase } from "@/services/database/useRealTimeFirebase";
 
 const Icons = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { insertUser } = useRealTimeFirebase();
 
   const handleSignInWithGoogle = async () => {
     setLoading(true);
@@ -34,6 +31,14 @@ const Icons = () => {
       try {
         const result = await signInWithPopup(auth, provider);
         console.log("Usuário Google:", result.user);
+        if(result.user.email && result.user.displayName)
+        insertUser({
+          cpf: "",
+          email: result.user.email,
+          name: result.user.displayName,
+          password: "",
+          tel: ""
+        });
         sessionStorage.setItem("logged", "true");
         router.push("/");
       } catch (popupError: any) {
@@ -51,7 +56,7 @@ const Icons = () => {
       setLoading(false);
     }
   };
-  
+
   const handleSignInWithApple = async () => {
     setLoading(true);
     try {
@@ -86,10 +91,12 @@ const Icons = () => {
   return (
     <div className="flex gap-40 justify-center w-full">
       <CaseIcon
-        colors={loading ? "error" :"base"}
+        colors={loading ? "error" : "base"}
         onClick={handleSignInWithGoogle}
         sizes="lg"
-        Icon={<Google fill={loading ? "#dc3957" : undefined} className="text-h6" />}
+        Icon={
+          <Google fill={loading ? "#dc3957" : undefined} className="text-h6" />
+        }
         desc="Entrar com o Google"
       />
       <CaseIcon

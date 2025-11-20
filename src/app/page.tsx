@@ -48,7 +48,7 @@ export default function Home() {
     >
       <div
         ref={cameraRef}
-        className="w-full h-screen fixed border border-red-900 z-0"
+        className="w-full h-screen fixed z-0"
       >
         <Animation3D progress={progress} />
       </div>

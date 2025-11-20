@@ -2,11 +2,27 @@
 import Link from "@/components/Link";
 import { useEffect, useRef, useState } from "react";
 import ImageInfos from "@/components/infos/ImageInfos";
+import home from "@/../public/img/infos/como_usar/home.png";
+import navPrin from "@/../public/img/infos/como_usar/navPrin.png";
+import gerenAmbien from "@/../public/img/infos/como_usar/gerenAmbien.png";
+import controleRapido from "@/../public/img/infos/como_usar/controleRapido.png";
+import hist from "@/../public/img/infos/como_usar/disp.png";
+import perfil from "@/../public/img/infos/como_usar/perfil.png";
+import status from "@/../public/img/infos/como_usar/status.png";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
   const listRef = useRef<HTMLUListElement>(null);
   const sectionInfos = useRef<HTMLElement>(null);
+  const imgs = [
+    home,
+    navPrin,
+    gerenAmbien,
+    controleRapido,
+    status,
+    perfil,
+    hist
+  ];
 
   const handleProgress = () => {
     const scrollProgress = document.documentElement.scrollTop;
@@ -37,7 +53,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="bg-(image:--bg-pattern) h-fit flex manda overflow-hidden">
+    <main className="bg-dark-10 bg-(image:--bg-pattern) h-fit flex overflow-hidden ">
       <article className="fixed bg-dark-09 border-r-4 border-dashed border-r-secondary-01  w-max-80 w-max h-full pl-8 pr-20 flex">
         <Link
           href="./../../"
@@ -146,7 +162,7 @@ const Index = () => {
         </ul>
       </div>
 
-      <ImageInfos progress={progress}/>
+      <ImageInfos progress={progress} imgs={imgs} />
 
       <section
         ref={sectionInfos}

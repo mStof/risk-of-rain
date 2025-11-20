@@ -13,9 +13,6 @@ const Index = () => {
       </div>
       <div className="flex flex-col gap-4 -800 h-[calc(65vh_-_3.5rem)] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-dark-10 [&::-webkit-scrollbar-thumb]:border-dark-10 [&::-webkit-scrollbar-thumb]:border-x-3 [&::-webkit-scrollbar-thumb]:bg-secondary-01">
         <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
       </div>
     </article>
   );

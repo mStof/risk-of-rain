@@ -1,10 +1,9 @@
 "use client";
 import React, { lazy, useEffect, useRef } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 // import { Grub } from "@/utils/models/Grub";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import {
-  DirectionalLight,
   Group,
   Object3DEventMap,
   PerspectiveCamera as TypePerspectiveCamera
@@ -54,9 +53,9 @@ const Animation = ({ progressAnim }: AnimationType) => {
 
   useFrame(() => cameraRef.current?.lookAt(0, 0, 0));
 
-  const handleClick = () => {
-    console.log(cameraRef.current?.position, cameraRef.current?.rotation);
-  };
+  // const handleClick = () => {
+  //   console.log(cameraRef.current?.position, cameraRef.current?.rotation);
+  // };
 
   useGSAP(() => {
     const handleMouseMove = handleAnimationSeekCursorRef.current;
@@ -108,11 +107,11 @@ const Animation = ({ progressAnim }: AnimationType) => {
   return (
     <>
       <ambientLight intensity={10} />
-      <directionalLight position={[-5, 0, 2]} intensity={5} />
-      <directionalLight position={[0, 5, 2]} intensity={5} />
-      <directionalLight position={[0, -5, 2]} intensity={5} />
-      <directionalLight position={[0, 0, 20]} intensity={5} />
-      <directionalLight position={[5, 0, -2]} intensity={5} />
+      <directionalLight position={[-5, 0, 2]} intensity={2.5} />
+      <directionalLight position={[0, 5, 2]} intensity={2.5} />
+      <directionalLight position={[0, -5, 2]} intensity={2.5} />
+      <directionalLight position={[0, 0, 20]} intensity={2.5} />
+      <directionalLight position={[5, 0, -2]} intensity={2.5} />
       <OrbitControls />
       <PerspectiveCamera
         ref={cameraRef}
@@ -123,7 +122,7 @@ const Animation = ({ progressAnim }: AnimationType) => {
         position={[0, 1, 15]}
       />
       <CaseNormalLazy ref={group} />
-      <axesHelper args={[300]} />
+      {/* <axesHelper args={[300]} /> */}
     </>
   );
 };

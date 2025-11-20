@@ -44,7 +44,7 @@ const PaymentForm = ({setClose}:PaymentFormProps) => {
 
   const handleFormSubmit = (data: PaymentFormData) => {
     setPaymentField(data);
-    setClose && setClose();
+    if (setClose) setClose();
   };
 
 

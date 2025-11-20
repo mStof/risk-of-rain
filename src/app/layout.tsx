@@ -4,7 +4,6 @@ import "./globals.css";
 
 import Transition from "@/components/transition";
 import { Mouse } from "@/components/Mouse";
-import Enter from "./enterOnce";
 import BuyCardContainer from "@/components/buy-card";
 import Navbar from "@/components/navbar/";
 

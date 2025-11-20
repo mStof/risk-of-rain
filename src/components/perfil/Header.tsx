@@ -40,13 +40,18 @@ const Header = () => {
     const getData = async () => {
       // console.log(user);
       if (!user?.email) return;
+      if (user?.photoURL) setImg(user.photoURL);
       
       const res = await selectUser(user?.email);
-      if (!res) return;
-      const { name, cpf } = res[0];
+      if (!res || !res.length ) {
+        if (!user.displayName) return;
+        setUserConfig({ name:user?.displayName, cpf: "" });
+        
+      } else {
+        const { name, cpf } = res[0];
+        setUserConfig({ name, cpf });
+      }
       
-      setUserConfig({ name, cpf });
-      if (user?.photoURL) setImg(user.photoURL);
     };
     getData();
   }, [user]);

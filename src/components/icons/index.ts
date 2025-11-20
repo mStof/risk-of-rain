@@ -13,3 +13,6 @@ export { default as CaseIcon } from "./CaseIcon";
 export { default as Apple } from "./Apple";
 export { default as Google } from "./Google";
 export { default as Small } from "./Small";
+export { default as Github } from "./Github";
+export { default as Email } from "./Email";
+export { default as Instagram } from "./Instagram";

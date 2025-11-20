@@ -1,7 +1,6 @@
 "use client";
 import Link from "@/components/Link";
 import { useEffect, useRef, useState } from "react";
-import { VRButton } from "three/examples/jsm/Addons.js";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
@@ -38,7 +37,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="bg-(image:--bg-pattern) h-fit flex manda overflow-hidden">
+    <main className="bg-dark-10 bg-(image:--bg-pattern) h-fit flex manda overflow-hidden">
       <article className="fixed bg-dark-09 border-r-4 border-dashed border-r-secondary-01 w-max-80 w-max h-full pl-8 pr-20 flex">
         <Link
           href="./../../"

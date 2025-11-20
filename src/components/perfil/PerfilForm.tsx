@@ -56,10 +56,21 @@ const PerfilForm = () => {
   }, [cpf, tel, setValue]);
 
   useEffect(() => {
+    const getUserAuth = () => {
+      if (!user?.displayName || !user.email ) return;
+      setValue("name", user.displayName);
+      setValue("cpf", "");
+      setValue("password", "");
+      setValue("email", user.email);
+      setValue("tel", user.phoneNumber ? user.phoneNumber : "");
+
+    };
     const getUser = async () => {
       if (!user?.email) return;
       const res = await selectUser(user?.email);
-      if (!res) return;
+      console.log(user);
+      if (!res || !res?.length) return getUserAuth();
+      
       setValue("name", res[0].name);
       setValue("cpf", res[0].cpf);
       setValue("password", res[0].password);
@@ -83,7 +94,7 @@ const PerfilForm = () => {
     try {
       await updateEmail(data.email);
       await updatePassword(data.password);
-      await updateProfile({ displayName: data.name, });
+      await updateProfile({ displayName: data.name });
       await updateUser(data);
       location.reload();
     } catch (err) {

@@ -10,10 +10,10 @@ const Cards = () => {
       </div>
       <div className="flex flex-col gap-1 h-full items-start pt-1">
         <p className="text-base font-chakra-petch leading-4 text-secondary-10 -tracking-tighter font-light">
-          Arduino 1.
+          Minha casa
         </p>
         <p className="text-xs font-chakra-petch leading-4 text-dark-03 -tracking-tighter font-light">
-          Wifi: 123Rain
+          Wifi: CarlosTobo_5G
         </p>
       </div>
     </div>

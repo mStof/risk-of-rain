@@ -175,6 +175,17 @@ const Navbar = () => {
             comprar
           </p>
         </div>
+        <div
+          className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4"
+          onClick={() => setIsOpen(true)}
+        >
+          <p className="pointer-events-none text-center text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-9 group-hover:text-left lowercase">
+            D.
+          </p>
+          <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            Desenvolvedores
+          </p>
+        </div>
         <div className="border-y border-secondary-01 w-full flex items-center gap-4 px-4 py-4 mt-auto">
           <Link href="/user/perfil" className="flex items-center w-full gap-4">
             {/* <PerfilCase sizes="md2" /> */}

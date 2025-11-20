@@ -19,6 +19,8 @@ const Navbar = memo(() => {
   const { setIsOpen } = useBuyModal();
   const [user] = useAuthState(auth);
 
+  useEffect(() => setIsOpenNav(false), []);
+
   useEffect(() => {    
     if (user?.photoURL && user?.displayName)
       setUserConfig({ img: user.photoURL, name: user.displayName });
@@ -106,14 +108,27 @@ const Navbar = memo(() => {
             </p>
           </Link>
         </div>
+        <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
+          <Link
+            href="/criadores"
+            className="flex gap-4 items-center w-full bg-blue800"
+          >
+            <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase ">
+              D.
+            </p>
+            <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+              desenvolvedores
+            </p>
+          </Link>
+        </div>
         <div
           className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start justifycenter gap-4 px-2 py-4"
           onClick={() => setIsOpen(true)}
         >
-          <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
+          <p className="text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
             C.
           </p>
-          <p className="pointer-events-none group-hover:w-full w-0  text-nowrap overflow-hidden left-16 absolute transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+          <p className="group-hover:w-full w-0  text-nowrap overflow-hidden left-16 absolute transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
             comprar
           </p>
         </div>

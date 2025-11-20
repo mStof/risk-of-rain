@@ -2,7 +2,7 @@
 import React, { ReactNode, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(useGSAP);
 

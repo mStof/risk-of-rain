@@ -1,5 +1,5 @@
 import { CasaModel } from "@/utils/models/casaModel";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useEffect, useRef } from "react";
 import { PerspectiveCamera as TypePerspectiveCamera } from "three";

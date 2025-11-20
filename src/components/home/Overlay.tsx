@@ -1,7 +1,5 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import { useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +8,6 @@ import { useRef } from "react";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Overlay = () => {
-  const scroll = useScroll();
   const textRef = useRef<HTMLHeadingElement>(null);
   const tl = useRef<gsap.core.Timeline>(null);
 

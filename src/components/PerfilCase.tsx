@@ -2,7 +2,7 @@
 import { tv, type VariantProps } from "tailwind-variants";
 import { HTMLAttributes } from "react";
 import { useMouse } from "@/context/useMouse";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { auth } from "@/services/database/FirebaseConfig";
 import test from "@/../public/img/perfil.jpg";
 
@@ -22,6 +22,7 @@ const iconStyle = tv({
       md2: { base: "size-8" },
       lg: { base: "size-10" },
       lg2: { base: "size-20" },
+      lg3: { base: "size-48" },
       lineSm: {
         base: "size-8",
         line1:"h-0.5",
@@ -38,7 +39,7 @@ const iconStyle = tv({
 type IconStyleProps = VariantProps<typeof iconStyle> &
   HTMLAttributes<HTMLDivElement> & {
     desc?: string;
-    img: string;
+    img: string | StaticImageData;
   };
 
 const PerfilCase = ({

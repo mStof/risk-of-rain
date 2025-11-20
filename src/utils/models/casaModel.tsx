@@ -99,7 +99,7 @@ type GLTFResult = GLTF & {
 }
 
 export function CasaModel(props: JSX.IntrinsicElements["group"]) {
-  const { nodes, materials } = useGLTF("models/animationsCasa .glb") as unknown as GLTFResult;
+  const { nodes, materials } = useGLTF("http://localhost:3000/models/animationsCasa.glb") as unknown as GLTFResult;
   const groupRef = useRef<THREE.Group<THREE.Object3DEventMap>>(null);
   window.addEventListener("click", () => {
     console.log(groupRef);
@@ -756,4 +756,4 @@ export function CasaModel(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("models/animationsCasa .glb");
+useGLTF.preload("http://localhost:3000/models/animationsCasa.glb");
