@@ -47,7 +47,7 @@ const Navbar = memo(() => {
       <ButtonNav setIsOpen={setIsOpenNav} isOpen={isOpenNav} />
       <nav
         ref={navRef}
-        className="-translate-x-full duration-300 group bg-dark-10 h-full w-20 transition-all hover:w-126 fixed border-r-2 border-secondary-01 px-2 py-2 z-70 flex flex-col"
+        className="text-secondary-10 -translate-x-full duration-300 group bg-dark-10 h-full w-20 transition-all hover:w-126 fixed border-r-2 border-secondary-01 px-2 py-2 z-70 flex flex-col"
       >
         <div className="border-b border-secondary-01 w-full flex items-center gap-4 px-4 py-4">
           <Link href="/" className="flex items-center w-full gap-4" onClick={() => setIsOpenNav(false)}>

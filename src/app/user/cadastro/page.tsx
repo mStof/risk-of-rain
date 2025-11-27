@@ -26,7 +26,7 @@ const Cadastro = () => {
             </p>
             <span className="bg-secondary-01 flex-1 h-0.5 "></span>
           </div>
-          <Icons />
+          {/* <Icons /> */}
         </div>
         <Link
           href="/user/login"

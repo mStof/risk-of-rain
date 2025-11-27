@@ -11,7 +11,7 @@ const Page = () => {
       if (!hasUser) redirect("/user/login");
     }, []);
   return (
-    <main className="bg-neutral-bg bg-(image:--bg-pattern) overflow-hidden relative h-screen flex">
+    <main className="text-secondary-10 bg-neutral-bg bg-(image:--bg-pattern) overflow-hidden relative h-screen flex">
       <article className="w-[calc(100vw_-_4rem)] h-[calc(100vh_-_4rem)] m-auto border-secondary-01 border-4 flex flex-col gap-12">
         <Header />
         <article className="px-8 flex flex-5 pb-8 gap-16">

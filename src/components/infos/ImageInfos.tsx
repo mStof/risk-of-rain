@@ -51,7 +51,7 @@ const ImageInfos = ({ progress, imgs }: { progress: number, imgs:StaticImageData
       <Image
         src={imgs[currentImg]}
         alt="home"
-        className="h-full w-auto object-cover"
+        className="h-full w-auto object-contain"
       />
     </div>
   );

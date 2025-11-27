@@ -72,7 +72,7 @@ const PerfilCase = ({
             height={500}
             quality={100}
             alt=""
-            className="size-full -rotate-90"
+            className="size-full object-cover -rotate-90"
           />
         </div>
       </div>

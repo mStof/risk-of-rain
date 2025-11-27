@@ -1,8 +1,10 @@
-import { CasaModel } from "@/utils/models/casaModel";
 import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef } from "react";
+import React, { lazy, useEffect, useRef } from "react";
 import { PerspectiveCamera as TypePerspectiveCamera } from "three";
+
+const CasaModelLazy = lazy(() => import("@/utils/models/casaModel"));
+
 
 const Render3D = () => {
   const camRef = useRef<TypePerspectiveCamera>(null);
@@ -26,7 +28,7 @@ const Render3D = () => {
         far={1000}
         position={[-92, 2.1, -62.3]}
       />
-      <CasaModel />
+      <CasaModelLazy />
       {/* <axesHelper args={[300]} /> */}
     </>
   );

@@ -1,13 +1,20 @@
 "use client";
 import Link from "@/components/Link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import home from "@/../public/img/infos/como_usar/home.png";
+import part1 from "@/../public/img/infos/como_instalar/part1.png";
+import part2 from "@/../public/img/infos/como_instalar/part2.png";
+import part3 from "@/../public/img/infos/como_instalar/part3.png";
+import part4 from "@/../public/img/infos/como_instalar/part4.png";
+import part5 from "@/../public/img/infos/como_instalar/part5.png";
+import part6 from "@/../public/img/infos/como_instalar/part6.png";
+import part7 from "@/../public/img/infos/como_instalar/part7.png";
+import ImageInfos from "@/components/infos/ImageInfos";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
   const listRef = useRef<HTMLUListElement>(null);
   const sectionInfos = useRef<HTMLElement>(null);
+  const imgs = [part1, part2, part3, part4, part5, part6, part7];
 
   const handleProgress = () => {
     const scrollProgress = document.documentElement.scrollTop;
@@ -15,7 +22,6 @@ const Index = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
-    console.log(scrollProgress);
 
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
@@ -174,9 +180,7 @@ const Index = () => {
         </ul>
       </div>
 
-      <div className="fixed w-3/12 h-10/12 bg-red-700 inset-0 translate-x-3/4 self-center">
-        <Image src={home} alt="home" className="h-full w-auto object-cover" />
-      </div>
+      <ImageInfos progress={progress} imgs={imgs} />
 
       <section
         ref={sectionInfos}

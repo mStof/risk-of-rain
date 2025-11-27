@@ -9,12 +9,13 @@ import { useMouse } from "@/context/useMouse";
 gsap.registerPlugin(useGSAP);
 
 type CardType = {
+  link: string;
   title: string;
   subtitle?: string;
   imgConfig: { src: string | StaticImport; alt: string };
 };
 
-const Card = ({ imgConfig, subtitle, title }: CardType) => {
+const Card = ({ link, imgConfig, subtitle, title }: CardType) => {
   const { setSelected } = useMouse();
   const viewRef = useRef<HTMLParagraphElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -59,7 +60,7 @@ const Card = ({ imgConfig, subtitle, title }: CardType) => {
   });
 
   return (
-    <Link href="/infos/slug" className="">
+    <Link href={link} className="">
       <section
         ref={sectionRef}
         onMouseEnter={handleIn}

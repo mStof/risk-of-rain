@@ -1,11 +1,19 @@
 "use client";
+import ImageInfos from "@/components/infos/ImageInfos";
 import Link from "@/components/Link";
 import { useEffect, useRef, useState } from "react";
+import part1 from "@/../public/img/infos/sobre_sistema/part1.png";
+import part3 from "@/../public/img/infos/sobre_sistema/part3.png";
+import part4 from "@/../public/img/infos/sobre_sistema/part4.png";
+import part5 from "@/../public/img/infos/sobre_sistema/part5.png";
+import part6 from "@/../public/img/infos/sobre_sistema/part6.png";
+import part7 from "@/../public/img/infos/sobre_sistema/part7.png";
 
 const Index = () => {
   const [progress, setProgress] = useState(0);
   const listRef = useRef<HTMLUListElement>(null);
   const sectionInfos = useRef<HTMLElement>(null);
+  const imgs = [part1, part1, part3, part4, part5, part6, part7];
 
   const handleProgress = () => {
     const scrollProgress = document.documentElement.scrollTop;
@@ -13,7 +21,6 @@ const Index = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
-    console.log(scrollProgress);
 
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
@@ -23,7 +30,6 @@ const Index = () => {
 
     const eachProgress = heightSize / sections;
     const currentSection = Math.floor(Math.ceil(scrollProgress) / eachProgress);
-    console.log(sections, currentSection, scrollProgress, eachProgress);
     const listItems = listRef.current?.querySelectorAll("li > div");
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
@@ -145,7 +151,7 @@ const Index = () => {
         </ul>
       </div>
 
-      <div className="fixed w-3/12 h-10/12 bg-red-700 inset-0 translate-x-3/4 self-center"></div>
+      <ImageInfos progress={progress} imgs={imgs} />
 
       <section
         ref={sectionInfos}
@@ -160,11 +166,11 @@ const Index = () => {
               Um avançado sistema de automação residencial inteligente foi
               desenvolvido com o propósito de proteger bens materiais contra os
               efeitos das mudanças climáticas, oferecendo uma solução moderna e
-              eficiente, especialmente em períodos de chuva intensa.
-              Com tecnologia de ponta, o sistema elimina a
-              necessidade de intervenções manuais, como o fechamento de janelas,
-              portas e lonas, proporcionando aos usuários maior segurança,
-              conforto, praticidade e ainda contribuindo para a economia e o uso
+              eficiente, especialmente em períodos de chuva intensa. Com
+              tecnologia de ponta, o sistema elimina a necessidade de
+              intervenções manuais, como o fechamento de janelas, portas e
+              lonas, proporcionando aos usuários maior segurança, conforto,
+              praticidade e ainda contribuindo para a economia e o uso
               consciente da energia.
             </p>
           </div>
@@ -187,7 +193,7 @@ const Index = () => {
 
         <div className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            componentes <br/> principais
+            componentes <br /> principais
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O gerenciamento do ambiente é centralizado para oferecer controle
@@ -245,7 +251,7 @@ const Index = () => {
 
         <div className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            impacto e <br/> relevância
+            impacto e <br /> relevância
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             A automação residencial, impulsionada pela Internet das Coisas
