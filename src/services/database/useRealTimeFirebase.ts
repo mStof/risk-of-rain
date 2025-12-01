@@ -11,7 +11,17 @@ import {
 import { app } from "./FirebaseConfig";
 import { userSchemaUpdateType } from "@/utils/schemas/userFormUpdate";
 
-type type = userSchemaUpdateType & { id: string };
+type type = userSchemaUpdateType & {
+  id: string;
+  devices: {
+    Esp: {
+      Esp1: { active: boolean; name: string };
+      Esp2: { active: boolean; name: string };
+      Esp3: { active: boolean; name: string };
+      Esp4: { active: boolean; name: string };
+    };
+  };
+};
 
 const useRealTimeFirebase = () => {
   const db = getDatabase(app);
@@ -46,7 +56,6 @@ const useRealTimeFirebase = () => {
       console.error("Erro ao selecionar usuário:", error);
     }
   };
-
 
   const updateUser = async (dataUser: userSchemaUpdateType) => {
     const data = await selectUser(dataUser.email);

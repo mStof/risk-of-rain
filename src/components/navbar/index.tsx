@@ -13,17 +13,20 @@ import { useAuthState } from "react-firebase-hooks/auth";
 gsap.registerPlugin(useGSAP);
 
 const Navbar = memo(() => {
-  const [userConfig, setUserConfig] = useState({ img: "", name: "" });
+  const [userImg, setUserImg] = useState("");
+  const [userName, setUserName] = useState("");
   const navRef = useRef<HTMLElement>(null);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const { setIsOpen } = useBuyModal();
   const [user] = useAuthState(auth);
+  console.log(user?.displayName);
+  
 
   useEffect(() => setIsOpenNav(false), []);
 
   useEffect(() => {    
-    if (user?.photoURL && user?.displayName)
-      setUserConfig({ img: user.photoURL, name: user.displayName });
+    if (user?.photoURL) setUserImg( user.photoURL );
+    if (user?.displayName) setUserName( user.displayName );
   }, [user]);
 
   useGSAP(() => {
@@ -114,7 +117,7 @@ const Navbar = memo(() => {
             className="flex gap-4 items-center w-full bg-blue800"
           >
             <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase ">
-              D.
+              v.
             </p>
             <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               desenvolvedores
@@ -126,7 +129,7 @@ const Navbar = memo(() => {
           onClick={() => setIsOpen(true)}
         >
           <p className="text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
-            C.
+            vI.
           </p>
           <p className="group-hover:w-full w-0  text-nowrap overflow-hidden left-16 absolute transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
             comprar
@@ -134,9 +137,9 @@ const Navbar = memo(() => {
         </div>
         <div className="border-y border-secondary-01 w-full flex items-center gap-4 px-4 py-4 mt-auto">
           <Link href="/user/perfil" className="flex items-center w-full gap-4" onClick={() => setIsOpenNav(false)}>
-            <PerfilCase img={userConfig.img} sizes="lineSm" />
+            <PerfilCase img={userImg} sizes="lineSm" />
             <p className="group-hover:w-full w-0 hidden group-hover:block group-[:not(:hover)]:delay-1000  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6 lowercase">
-              {userConfig.name ? userConfig.name : "Logue"}
+              {userName ? userName : "Logue"}
             </p>
           </Link>
         </div>

@@ -59,7 +59,7 @@ const WindowCard = ({ title, price, img }: WindowCardProps) => {
           R${price.toFixed(2).replace(".", ",")}
         </p>
       </div>
-      <Image src={img} alt="" className="self-center rotate-90 w-4/6" />
+      <Image src={img} alt="" className="self-center w-4/6" />
       <div className="w-full flex justify-between items-center">
         <div
           className="border-2 border-secondary-01 h-full aspect-square flex text-sm items-center justify-center"

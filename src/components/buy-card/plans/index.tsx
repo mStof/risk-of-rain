@@ -42,7 +42,7 @@ const Index = () => {
         </p>
       </div>
       <div className="flex my-auto gap-16 justify-center bg-emeald-500">
-        <Card title="Kit Essensial" windows={1} price={499} infos={infos1} isGray />
+        <Card title="Kit Essensial" windows={1} price={239} infos={infos1} isGray />
         <Card title="Kit Padrão" windows={4} price={499} infos={infos2} />
         <Card title="Kit Familia" windows={7} price={689} infos={infos3} isGray />
       </div>

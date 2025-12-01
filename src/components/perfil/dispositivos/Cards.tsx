@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import test from "@/../public/img/perfil.jpg";
 
-const Cards = () => {
+const Cards = ({name,ativo}:{name:string, ativo:boolean}) => {
   return (
     <div className="h-20 w-full bg-dark-09 border-2 p-2 border-secondary-01 flex gap-2 items-center">
       <div className="h-full aspect-square">
@@ -10,10 +10,13 @@ const Cards = () => {
       </div>
       <div className="flex flex-col gap-1 h-full items-start pt-1">
         <p className="text-base font-chakra-petch leading-4 text-secondary-10 -tracking-tighter font-light">
-          Minha casa
+          {name}
         </p>
         <p className="text-xs font-chakra-petch leading-4 text-dark-03 -tracking-tighter font-light">
           Wifi: CarlosTobo_5G
+        </p>
+        <p className="text-xs font-chakra-petch leading-4 text-dark-03 -tracking-tighter font-light">
+          Status: {ativo ? "Fechado" : "Aberto"}
         </p>
       </div>
     </div>

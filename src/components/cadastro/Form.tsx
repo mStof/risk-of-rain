@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema, userSchemaType } from "@/utils/schemas/userForm";
 import { Add, CaseIcon } from "../icons";
 import { cpfMask } from "@/utils/masks/cepMask";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import { auth } from "@/services/database/FirebaseConfig";
 import { useRealTimeFirebase } from "@/services/database/useRealTimeFirebase";
 import { useRouter } from "next/navigation";
@@ -17,6 +17,7 @@ const Form = () => {
   const router = useRouter();
   const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, , ] = useUpdateProfile(auth);
   const [authError, setAuthError] = useState("");
   const { insertUser } = useRealTimeFirebase();
   const {
@@ -49,6 +50,7 @@ const Form = () => {
       await createUserWithEmailAndPassword(data.email, data.password);
       if (error?.message) throw error.code;
       insertUser({...data, tel:""});
+      updateProfile({ displayName: data.name });
       sessionStorage.setItem("logged", "true");
       router.push("/");
 

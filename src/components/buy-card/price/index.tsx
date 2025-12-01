@@ -2,6 +2,9 @@ import Image from "next/image";
 import React from "react";
 import WindowCard from "./WindowCard";
 import InfoSec from "./InfoSec";
+import bast from "@/../public/img/bastidora-removebg-preview (1).png";
+import corre from "@/../public/img/correr-removebg-preview.png";
+import abrir from "@/../public/img/salvar (1).png";
 import img from "@/../public/img/product.png";
 
 const Price = () => {
@@ -12,9 +15,9 @@ const Price = () => {
           <Image src={img} alt="" className="h-auto w-2/5" />
         </section>
         <section className="w-full h-1/2 flex gap-4">
-          <WindowCard title="bastidora" price={99.99} img={img} />
-          <WindowCard title="cudocisse" price={99.99} img={img} />
-          <WindowCard title="janela" price={99.99} img={img} />
+          <WindowCard title="bastidora" price={99.99} img={bast} />
+          <WindowCard title="de abrir" price={99.99} img={corre} />
+          <WindowCard title="de correr" price={99.99} img={abrir} />
         </section>
       </section>
       <InfoSec />
