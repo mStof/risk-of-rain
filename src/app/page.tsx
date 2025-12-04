@@ -26,7 +26,6 @@ export default function Home() {
         start: "top top",
         end: "2000 top",
         scrub: 1,
-        markers: true,
 
         onUpdate: (self) => setProgress(self.progress)
       }
