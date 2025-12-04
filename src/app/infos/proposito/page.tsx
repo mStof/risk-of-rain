@@ -294,7 +294,7 @@ const Index = () => {
             ESP32 como microcontrolador principal (Wi-Fi/Bluetooth).
             Componentes-chave são o Módulo de Detecção Climática e o protocolo
             MQTT para comunicação eficiente. O diferencial técnico é a rapidez
-            do Modo Automático (resposta de fechamento em menos de 3 segundos),
+            do Modo Automático (resposta de fechamento em menos de 5 segundos),
             além do Modo Manual via aplicativo.
           </p>
         </div>

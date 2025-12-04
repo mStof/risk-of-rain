@@ -205,7 +205,7 @@ const Index = () => {
 
         <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            funcionamento <br /> autôno
+            funcionamento <br /> autônomo
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O sensor, instalado em uma área externa, como o telhado, aciona
@@ -219,7 +219,7 @@ const Index = () => {
 
         <div className="snap-center section flex justify-center gap-16 flex-col ml-64 min-w-[37.75rem] w-min h-screen">
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            desing e <br /> metodologia
+            design e <br /> metodologia
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O desenvolvimento do projeto seguiu os princípios do Design

@@ -72,7 +72,7 @@ const Card = ({ link, imgConfig, subtitle, title }: CardType) => {
           ref={viewRef}
           className="absolute font-major-mono-display opacity-0 w-fit h-fit text-secondary-01 text-2xl leading-6 z-30 inset-0"
         >
-          View
+          Veja
         </p>
         <div className="absolute w-full h-full bg-white/5 backdrop-blur-sm inset-0 isolate"></div>
         <div className="flex flex-col gap-2 isolate">

@@ -114,7 +114,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              instalação.
+              Instalação.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -235,7 +235,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            preparação e <br /> compatibiliadeda <br/> janela
+            preparação e <br /> compatibilide da <br/> janela
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O sistema ROR foi projetado com flexibilidade para ser compatível

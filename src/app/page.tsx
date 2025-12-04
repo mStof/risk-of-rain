@@ -47,7 +47,11 @@ export default function Home() {
   return (
     <main
       ref={containerRef}
-      className="bg-neutral-bg bg-(image:--bg-pattern) overflow-hidden relative text-secondary-10"
+      className="bg-neutral-bg bg-(image:--bg-pattern) overflow-hidden relative text-secondary-10 [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
     >
       <div ref={cameraRef} className="w-full h-screen fixed z-0">
         <Animation3D progress={progress} />

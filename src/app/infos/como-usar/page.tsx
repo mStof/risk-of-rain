@@ -260,7 +260,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            controle rapido
+            controle rápido
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             A seção principal do aplicativo exibe de forma clara e objetiva o
@@ -313,7 +313,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
-            historico de eventos
+            histórico de eventos
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             A seção de Histórico é uma linha do tempo completa de todas as

@@ -33,7 +33,15 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <body
       data-scroll-behavior="smooth"
-        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none scroll-smooth`}
+        className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none scroll-smooth 
+        [&::-webkit-scrollbar]:w-1
+  [&::-webkit-scrollbar-track]:bg-dark-10
+  [&::-webkit-scrollbar-track]:bordersecondary-01
+  [&::-webkit-scrollbar-track]:boder
+  [&::-webkit-scrollbar-thumb]:bg-secondary-01
+  [&::-webkit-scrollbar-thumb]:border-secondary-01
+  [&::-webkit-scrollbar-thumb]:border
+  `}
       >
         <Mouse />
         {/* <Enter> */}
