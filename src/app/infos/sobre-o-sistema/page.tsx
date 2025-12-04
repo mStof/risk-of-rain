@@ -69,8 +69,8 @@ const Index = () => {
               data-progress={true}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Sobre o sistema.
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+              Sobre o Sistema.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -78,7 +78,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Motivação e Origem.
             </p>
           </li>
@@ -87,7 +87,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Componentes Principais.
             </p>
           </li>
@@ -96,8 +96,8 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Funcionamento Autôno.
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+              Funcionamento Autônomo.
             </p>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -105,7 +105,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Design e Metodologia.
             </p>
           </li>
@@ -114,7 +114,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Flexibilidade e Adaptação.
             </p>
           </li>
@@ -123,7 +123,7 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <p className="text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <p className="capitaliz text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
               Impacto e Relevância.
             </p>
           </li>
@@ -163,15 +163,12 @@ const Index = () => {
           </h1>
           <div className="flex flex-col gap-6">
             <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-              Um avançado sistema de automação residencial inteligente foi
-              desenvolvido com o propósito de proteger bens materiais contra os
-              efeitos das mudanças climáticas, oferecendo uma solução moderna e
-              eficiente, especialmente em períodos de chuva intensa. Com
-              tecnologia de ponta, o sistema elimina a necessidade de
-              intervenções manuais, como o fechamento de janelas, portas e
-              lonas, proporcionando aos usuários maior segurança, conforto,
-              praticidade e ainda contribuindo para a economia e o uso
-              consciente da energia.
+              Um sistema de automação residencial que oferece uma solução
+              inteligente para proteger bens materiais contra os desafios das
+              mudanças climáticas, especialmente durante períodos de chuva
+              intensa. O sistema elimina a necessidade de fechar
+              janelas, portas e lonas manualmente, proporcionando segurança,
+              comodidade e economia de energia.
             </p>
           </div>
         </div>
@@ -199,10 +196,10 @@ const Index = () => {
             O gerenciamento do ambiente é centralizado para oferecer controle
             total sobre a sua casa. A interface do aplicativo permite que você
             veja o status geral do seu módulo de automação e execute comandos
-            que afetam todas as janelas ao mesmo tempo, como &#34;Fechar
-            tudo&#34;. Além disso, você pode monitorar as condições climáticas
-            gerais do ambiente, como temperatura e umidade, garantindo uma visão
-            completa e descomplicada do seu lar.
+            que afetam todas as janelas ao mesmo tempo, como “Fechar tudo”. Além
+            disso, você pode monitorar as condições climáticas gerais do
+            ambiente, como temperatura e umidade, garantindo uma visão completa
+            e descomplicada do seu lar.
           </p>
         </div>
 
@@ -216,7 +213,7 @@ const Index = () => {
             fechamento rápido e eficiente das janelas. O sistema opera de forma
             autônoma, eliminando a necessidade de intervenção manual. Embora o
             sistema realize suas ações sem necessidade de comando humano, ele
-            também pode ser controlado remotamente através de um aplicativo.
+            também pode ser controlado remotamente por meio de um aplicativo.
           </p>
         </div>
 
@@ -240,7 +237,7 @@ const Index = () => {
             flexibilidade e <br /> adaptação
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            O sistema é flexível e foi projetado para ser ajustado conforme a
+            O sistema é flexível, sendo projetado para ser ajustado conforme a
             necessidade do cliente. A tecnologia dos motores é compatível com
             diversos modelos de janelas, adaptando-se a diferentes mecanismos.
             Essa flexibilidade garante que o número de motores possa ser

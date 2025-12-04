@@ -18,7 +18,6 @@ const Index = () => {
   const sectionInfos = useRef<HTMLElement>(null);
   const imgs = [part1, part2, part3, part4, part5, part6, part7];
 
-
   const handleProgress = () => {
     const scrollProgress = document.documentElement.scrollTop;
     const heightSize =
@@ -77,7 +76,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#knowApp"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Propósito central do projeto.
             </Link>
@@ -90,7 +89,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#firtsNav"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Solução Inovadora.
             </Link>
@@ -103,7 +102,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#gerencAmbien"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Escopo do Sistema.
             </Link>
@@ -116,7 +115,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#fastControl"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Impacto Social.
             </Link>
@@ -129,7 +128,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#status"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Fundamentação Técnica.
             </Link>
@@ -142,7 +141,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#gerencPerfil"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Arquitetura do Sistema.
             </Link>
@@ -155,7 +154,7 @@ const Index = () => {
             <Link
               href={"/infos/como-usar#histEvent"}
               scroll={true}
-              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
+              className="external capitalize text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
               Plataforma Digital.
             </Link>
@@ -203,15 +202,15 @@ const Index = () => {
               solução de automação residencial inteligente e acessível,
               oferecendo uma resposta eficaz aos desafios das mudanças
               climáticas. O sistema automatiza o controle de janelas, visando
-              proteger bens materiais contra danos causados por chuvas intensas
-              , ao mesmo tempo que elimina a necessidade de intervenção manual ,
+              proteger bens materiais contra danos causados por chuvas intensas,
+              ao mesmo tempo que elimina a necessidade de intervenção manual,
               proporcionando segurança, conforto e praticidade aos usuários.
             </p>
             <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-              Fundamentado em tecnologias como Internet das Coisas (IoT) e
-              Arduino , o ROR representa um avanço na adaptação de residências
-              ao conceito de smart homes , democratizando o acesso à tecnologia
-              cite_starte promovendo um ambiente mais seguro e resiliente.
+              Em tecnologias como Internet das Coisas (IoT) e Arduino, o ROR
+              representa um avanço na adaptação de residências ao conceito de
+              smart homes, democratizando o acesso à tecnologia e promovendo um
+              ambiente mais seguro e resiliente.
             </p>
           </div>
         </div>
@@ -271,13 +270,13 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            fundamentação <br/> técnica
+            fundamentação <br /> técnica
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             A programação é feita em C/C++ (IDE Arduino), centrada em uma lógica
             de verificação contínua para fechamento imediato na chuva e
             reabertura após cessar. O sistema opera de forma autônoma (sensor)
-            ou controlada (usuário/aplicativo). O Design prioriza um hardware
+            ou controlada (usuário/aplicativo). O design prioriza um hardware
             compacto, discreto e esteticamente agradável, com sensores
             estrategicamente posicionados.
           </p>
@@ -288,7 +287,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            arquitetura do <br/> sistema
+            arquitetura do <br /> sistema
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O ROR utiliza uma arquitetura IoT e de Sistemas Embarcados, com o
@@ -305,7 +304,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            plataforma digital: <br/> user experience
+            plataforma digital: <br /> user experience
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O projeto inclui interfaces de Controle e Usabilidade de alta

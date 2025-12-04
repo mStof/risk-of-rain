@@ -17,16 +17,18 @@ type CardProps = {
 const Card = ({ title, price, infos, windows, isGray = false }: CardProps) => {
   const { setPlan } = usePlan();
   const { setNavigation } = useNavigation();
-  const { setPrice, ...rest } = usePrice();
+  const { setPrice,resetPrice,card } = usePrice();
 
   const handlePlan = () => {
-    setPrice(-rest.price + price, -rest.items);
+    resetPrice();
+    setPrice({id:1001, nome:title, price:price});
     setPlan({ infos, plan: title, price, windows });
+
     setNavigation("buy");
   };
 
   return (
-    <article className="bg-secondary-10 text-dark-10 p-6 flex flex-col w-fit gap-6">
+    <article className="bg-secondary-10 text-dark-10 p-6 flex flex-col w-[20.5rem]  gap-6">
       <div className="flex flex-col gap-4 items-center">
         <p className="font-chakra-petch -tracking-tighter text-2xl leading-none font-light">
           {title}

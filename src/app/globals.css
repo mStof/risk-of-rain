@@ -6,6 +6,7 @@
   /* --cursor-base: url('/cursors/base.svg'), auto; */
   --cursor-pointer: url('/cursors/pointer.svg'), pointer;
   --bg-pattern: url('/bg-pattern.svg');
+  --bg-perfil: url('/icons/perfil.svg');
 }
 
 @theme {

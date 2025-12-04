@@ -1,15 +1,20 @@
 "use client";
 import Form from "@/components/cadastro/Form";
 import Icons from "@/components/cadastro/Icons";
+import { auth } from "@/services/database/FirebaseConfig";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Cadastro = () => {
+  const [user] = useAuthState(auth);
+
   useEffect(() => {
     const hasUser = sessionStorage.getItem("logged");
-    if (hasUser) redirect("/user/perfil");
-  }, []);
+    if (hasUser === "true") return redirect("/user/perfil");
+    if (user) return redirect("/user/perfil");
+  }, [user]);
 
   return (
     <main className="bg-(image:--bg-pattern) bg-dark-10 text-secondary-10 flex justify-center items-center h-svh w-full">

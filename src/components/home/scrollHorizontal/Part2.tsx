@@ -11,9 +11,9 @@ const Part2 = () => {
       duration: 1,
       scrollTrigger: {
         trigger: sectionTwo.current,
-        start: "60% top",
-        end: "90% top",
-        scrub: true,
+        start: "450vh top",
+        end: "700vh top",
+        scrub: true
       }
     });
     return () => {
@@ -31,8 +31,9 @@ const Part2 = () => {
         inteligente
       </h2>
       <p className="w-96 text-base font-light font-chakra-petch leading-normal text-justify -tracking-tighter mt-auto">
-        Many designs and tests went into creating a recording tool that would
-        fit the widest range of drummer ergonomy and style as well as.
+        Muitos projetos e testes foram realizados para criar uma ferramenta de
+        gravação que se adaptasse à mais ampla gama de ergonomia e estilo de
+        bateristas.
       </p>
     </section>
   );

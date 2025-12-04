@@ -52,7 +52,7 @@ const PerfilForm = () => {
   const [cpf, tel] = watch(["cpf", "tel"]);
   useEffect(() => {
     setValue("cpf", cpfMask(cpf));
-    setValue("tel", phoneMask(tel));
+    setValue("tel", phoneMask(tel ? tel : ""));
   }, [cpf, tel, setValue]);
 
   useEffect(() => {
@@ -68,7 +68,6 @@ const PerfilForm = () => {
     const getUser = async () => {
       if (!user?.email) return;
       const res = await selectUser(user?.email);
-      console.log(user);
       if (!res || !res?.length) return getUserAuth();
       
       setValue("name", res[0].name);
@@ -85,6 +84,7 @@ const PerfilForm = () => {
 
     if (success) {
       sessionStorage.removeItem("logged");
+      sessionStorage.setItem("logged", "false");
       router.push("/user/login");
     }
   };
@@ -98,7 +98,6 @@ const PerfilForm = () => {
       await updateUser(data);
       location.reload();
     } catch (err) {
-      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -140,6 +139,7 @@ const PerfilForm = () => {
             className="w-full"
             id="password"
             title="Senha"
+            type="password"
             state={errors.password ? "error" : "base"}
             icon={
               errors.password && (

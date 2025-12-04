@@ -4,15 +4,15 @@ import { HTMLAttributes } from "react";
 import { useMouse } from "@/context/useMouse";
 import Image, { StaticImageData } from "next/image";
 import { auth } from "@/services/database/FirebaseConfig";
-import test from "@/../public/img/perfil.jpg";
+import perfil from "@/../public/icons/perfil.svg"; 
 
 const iconStyle = tv({
   slots: {
-    base: "size-8 rotate-45 relative flex bg-emeald-500 ",
+    base: "size-8 rotate-45 aspect-square relative flex bg-emeald-500 border-3 border-secondary-01 box-content ",
     line1: "bg-secondary-01 h-1 w-full inset-0 absolute z-50",
     line2: "bg-secondary-01 h-full w-1 absolute z-50",
     line3:
-      "bg-secondary-01 h-full w-1 left-full -translate-x-full absolute z-50",
+      "bg-secondary-01 h-full w-1 border-red-500 left-full -translatex-full absolute z-50",
     line4: "bg-secondary-01 h-1 w-full top-full -translate-y-full absolute z-50"
   },
   variants: {
@@ -60,20 +60,31 @@ const PerfilCase = ({
       className={base({ className })}
       title={desc}
     >
-      <span className={line1()}></span>
+      {/* <span className={line1()}></span>
       <span className={line2()}></span>
       <span className={line3()}></span>
-      <span className={line4()}></span>
-      <div className="rotate-0 flex items-center justify-center size-full overflow-hidden bg-emerald-500">
-        <div className=" size-full scale-135 rotate-45">
-          <Image
-            src={img ? img : test}
-            width={500}
-            height={500}
-            quality={100}
-            alt=""
-            className="size-full object-cover -rotate-90"
-          />
+      <span className={line4()}></span> */}
+      <div className="rotate-0 flex items-center justify-center size-full overflow-hidden">
+        <div className=" size-full scale-140 rotate-45">
+          {
+            img ? (
+              <Image
+                src={img}
+                width={500}
+                height={500}
+                quality={100}
+                alt="Imagem de perfil"
+                className="size-full object-cover -rotate-90"
+              />
+              
+            ) : (
+              <Image
+                src={perfil}
+                alt="Imagem de perfil"
+                className="size-full object-cover -rotate-90 p-2"
+              />
+            )
+          }
         </div>
       </div>
     </div>

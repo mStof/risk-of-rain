@@ -10,10 +10,10 @@ const Yellow = () => {
         Proteção automática
       </p>
       <p className="font-chakra-petch uppercase -tracking-tighter font-medium text-h2 leading-16 text-dark-10">
-        Técnologia inteligente
+        Tecnologia inteligente
       </p>
       <p className="font-chakra-petch uppercase -tracking-tighter font-medium text-h2 leading-16 text-secondary-10">
-        Solução acessivel
+        Solução acessível
       </p>
       <p className="font-chakra-petch uppercase -tracking-tighter font-medium text-h2 leading-16 text-dark-10">
         Expansividade

@@ -13,6 +13,7 @@ const Index = () => {
       if (!user?.email) return;
       const userDB = await selectUser(user.email);
       if (!userDB) return;
+      if (!userDB[0].devices) return setCard([]);
       const esp = userDB[0].devices.Esp;
       const devices: { ativo: boolean; name: string }[] = Object.keys(esp).map(
         (k) => {

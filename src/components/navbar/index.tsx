@@ -18,15 +18,19 @@ const Navbar = memo(() => {
   const navRef = useRef<HTMLElement>(null);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const { setIsOpen } = useBuyModal();
-  const [user] = useAuthState(auth);
-  console.log(user?.displayName);
-  
+  const [user] = useAuthState(auth); 
+  console.log(user);
+   
 
   useEffect(() => setIsOpenNav(false), []);
 
-  useEffect(() => {    
+  useEffect(() => { 
+    console.log("exec");
+       
     if (user?.photoURL) setUserImg( user.photoURL );
+    else setUserImg( "" );
     if (user?.displayName) setUserName( user.displayName );
+    else setUserName("");
   }, [user]);
 
   useGSAP(() => {
@@ -50,10 +54,10 @@ const Navbar = memo(() => {
       <ButtonNav setIsOpen={setIsOpenNav} isOpen={isOpenNav} />
       <nav
         ref={navRef}
-        className="text-secondary-10 -translate-x-full duration-300 group bg-dark-10 h-full w-20 transition-all hover:w-126 fixed border-r-2 border-secondary-01 px-2 py-2 z-70 flex flex-col"
+        className="text-secondary-10 -translate-x-full duration-300 bg-dark-10 h-full w20 transition-all w-126 fixed border-r-2 border-secondary-01 px-2 py-2 z-70 flex flex-col"
       >
-        <div className="border-b border-secondary-01 w-full flex items-center gap-4 px-4 py-4">
           <Link href="/" className="flex items-center w-full gap-4" onClick={() => setIsOpenNav(false)}>
+        <div className="border-b border-secondary-01 w-full flex items-center gap-4 px-4 py-4">
             <CaseIcon
               colors="base"
               sizes="md2"
@@ -63,82 +67,82 @@ const Navbar = memo(() => {
                 </p>
               }
             />
-            <p className="pointer-events-none hidden group-hover:block group-[:not(:hover)]:delay-1000 group-hover:w-full w-0 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none  block [:not(:]:delay-1000 w-full w0 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               Risk of RAin
             </p>
-          </Link>
         </div>
-        <div className="border-b border-secondary-01 w-full  group-hover:justify-start gap-2 px-2 py-4">
+          </Link>
           <Link href="/infos/como-usar" className="flex gap-4 items-center w-full" onClick={() => setIsOpenNav(false)}>
-            <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
+        <div className="border-b border-secondary-01 w-full flex items-center justify-start gap-2 px-2 py-4">
+            <p className="pointer-events-none text-center textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
               I.
             </p>
-            <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none w-full w0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               como usar
             </p>
-          </Link>
         </div>
-        <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
+          </Link>
           <Link href="/infos/sobre-o-sistema" className="flex gap-4 items-center w-full" onClick={() => setIsOpenNav(false)}>
-            <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
+        <div className="border-b border-secondary-01 w-full flex items-center justify-start gap-2 px-2 py-4">
+            <p className="pointer-events-none text-center textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
               II.
             </p>
-            <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none w-full w0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               sobre o sistema
             </p>
-          </Link>
         </div>
-        <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
+          </Link>
           <Link href="/infos/proposito" className="flex gap-4 items-center w-full" onClick={() => setIsOpenNav(false)}>
-            <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
+        <div className="border-b border-secondary-01 w-full flex items-center justify-start gap-2 px-2 py-4">
+            <p className="pointer-events-none text-center textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
               III.
             </p>
-            <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none w-full w0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               central do projeto
             </p>
-          </Link>
         </div>
-        <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
+          </Link>
           <Link
             href="/infos/como-instalar"
             className="flex gap-4 items-center w-full bg-blue800"
           >
-            <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase ">
+        <div className="border-b border-secondary-01 w-full flex items-center justify-start gap-2 px-2 py-4">
+            <p className="pointer-events-none text-center textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase ">
               Iv.
             </p>
-            <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none w-full w0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               detalhes da instalação
             </p>
-          </Link>
         </div>
-        <div className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start gap-2 px-2 py-4">
+          </Link>
           <Link
             href="/criadores"
             className="flex gap-4 items-center w-full bg-blue800"
           >
-            <p className="pointer-events-none text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase ">
+        <div className="border-b border-secondary-01 w-full flex items-center justify-start gap-2 px-2 py-4">
+            <p className="pointer-events-none text-center textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase ">
               v.
             </p>
-            <p className="pointer-events-none group-hover:w-full w-0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+            <p className="pointer-events-none w-full w0 absolute left-16 text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
               desenvolvedores
             </p>
-          </Link>
         </div>
+          </Link>
         <div
-          className="border-b border-secondary-01 w-full flex items-center group-hover:justify-start justifycenter gap-4 px-2 py-4"
+          className="border-b border-secondary-01 w-full flex items-center justify-start justifycenter gap-4 px-2 py-4"
           onClick={() => setIsOpen(true)}
         >
-          <p className="text-center group-hover:textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
+          <p className="text-center textright text-[1rem] font-major-mono-display leading-6 -tracking-[.20rem] bg-red500 w-12 lowercase">
             vI.
           </p>
-          <p className="group-hover:w-full w-0  text-nowrap overflow-hidden left-16 absolute transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
+          <p className="w-full w0  text-nowrap overflow-hidden left-16 absolute transition-all duration-300 text-[1rem] font-major-mono-display leading-6">
             comprar
           </p>
         </div>
         <div className="border-y border-secondary-01 w-full flex items-center gap-4 px-4 py-4 mt-auto">
           <Link href="/user/perfil" className="flex items-center w-full gap-4" onClick={() => setIsOpenNav(false)}>
             <PerfilCase img={userImg} sizes="lineSm" />
-            <p className="group-hover:w-full w-0 hidden group-hover:block group-[:not(:hover)]:delay-1000  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6 lowercase">
+            <p className="w-full w0 block [:not(:]:delay-1000  text-nowrap overflow-hidden transition-all duration-300 text-[1rem] font-major-mono-display leading-6 lowercase">
               {userName ? userName : "Logue"}
             </p>
           </Link>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Button from "./Button";
 import { CaseIcon } from "./icons";
-import test from "@/../public/icons/edit.svg";
+import qrcode from "@/../public/img/qrcode.svg";
 
 const Footer = () => {
   return (
@@ -66,25 +66,21 @@ const Footer = () => {
                 </li>
                 <li className="w-fit flex flex-col-reverse gap-0.5">
                   <span className="bg-secondary-10 h-px w-full block"></span>
-                  <Link href="/">Comprar</Link>
-                </li>
-                <li className="w-fit flex flex-col-reverse gap-0.5">
-                  <span className="bg-secondary-10 h-px w-full block"></span>
-                  <Link href="/sobre-nos">Sobre nós</Link>
+                  <Link href="/criadores">Sobre nós</Link>
                 </li>
               </ul>
             </div>
-            <div className="text-secondary-10 flex flex-col gap-8">
-              <h3 className="font-chakra-petch font-medium text-base -tracking-tighter leading-4">
+            <div className="text-secondary-10 flex flex-col items-center w-fit gap-8">
+              <h3 className="font-chakra-petch font-medium text-base -tracking-tighter w-fit  leading-4">
                 Baixe nosso app
               </h3>
-              <Link className="external flex flex-col gap-2" href="" download>
+              <Link className="externalw-fit flex flex-col gap-2" href="https://github.com/PH-CSS/riskOfRainMobile" target="_blank" rel="noopener noreferrer">
                 <Image
-                  src={test}
+                  src={qrcode}
                   alt="QR code para baixar o app"
-                  className="w-full aspect-square"
+                  className="aspect-square w-fit"
                 />
-                <p className="font-chakra-petch -tracking-tighter leading-3 text-sm font-light">
+                <p className="font-chakra-petch -tracking-tighter leading-3 text-sm w-fit font-light">
                   Ou clique para baixar!
                 </p>
               </Link>

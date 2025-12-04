@@ -179,7 +179,6 @@ const Index = ({ children }: TransitionProps) => {
     links.forEach((link) => {
       link.addEventListener("click", handleLinkChangeRef.current);
     });
-    console.log(links);
 
     return () => {
       links.forEach((link) => {

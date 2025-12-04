@@ -1,4 +1,3 @@
- 
 import Button from "@/components/Button";
 import { Add, CaseIcon } from "@/components/icons";
 import Input from "@/components/Input";
@@ -13,7 +12,7 @@ type PaymentFormProps = {
   setClose?: () => void;
 };
 
-const PaymentForm = ({setClose}:PaymentFormProps) => {
+const PaymentForm = ({ setClose }: PaymentFormProps) => {
   const { handleSubmit, register, formState, watch, setValue } =
     useForm<PaymentFormData>({
       criteriaMode: "all",
@@ -27,7 +26,7 @@ const PaymentForm = ({setClose}:PaymentFormProps) => {
         expirationDate: ""
       }
     });
-  const {setPaymentField} = useFormContext();
+  const { setPaymentField } = useFormContext();
 
   const { errors } = formState;
   const [cardNumber, cpf, expirationDate] = watch([
@@ -47,7 +46,6 @@ const PaymentForm = ({setClose}:PaymentFormProps) => {
     if (setClose) setClose();
   };
 
-
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
@@ -56,31 +54,14 @@ const PaymentForm = ({setClose}:PaymentFormProps) => {
       <h3 className="text-2xl font-medium font-chakra-petch leading-6 -tracking-tighter">
         Métodos de pagamento
       </h3>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         <div className="flex justify-between">
           <p className="text-base font-light font-chakra-petch -tracking-tighter leading-4">
-            Selecione a forma de pagamento:
+            Forma de pagamento:
           </p>
-          <select className="text-base font-light font-chakra-petch -tracking-tighter leading-4">
-            <option
-              className="bg-dark-10 hover:bg-dark-09 text-base font-light font-chakra-petch -tracking-tighter leading-4"
-              value="card"
-            >
-              Cartão
-            </option>
-            <option
-              className="bg-dark-10 hover:bg-dark-09 text-base font-light font-chakra-petch -tracking-tighter leading-4"
-              value="pix"
-            >
-              PIX
-            </option>
-            <option
-              className="bg-dark-10 hover:bg-dark-09 text-base font-light font-chakra-petch -tracking-tighter leading-4"
-              value="boleto"
-            >
-              Boleto
-            </option>
-          </select>
+          <p className="text-base font-light font-chakra-petch -tracking-tighter leading-4">
+            Cartão
+          </p>
         </div>
         <span className="w-full h-px bg-secondary-10"></span>
       </div>

@@ -4,7 +4,8 @@ import perfilMstof from "@/../public/img/devs/mstofImg.jpg";
 import perfilMstofCase from "@/../public/img/devs/mstofCase.jpg";
 import perfilPhFull from "@/../public/img/devs/phFull.jpg";
 import perfilPhCase from "@/../public/img/devs/phCase.jpg";
-import perfil from "@/../public/img/images.jpg";
+import perfilNicolasFull from "@/../public/img/devs/nicolas.jpg";
+import perfilNicolasCase from "@/../public/img/devs/nicolasCase.jpg";
 import PerfilCase from "@/components/PerfilCase";
 import { Email, Github, Instagram } from "@/components/icons";
 import Link from "next/link";
@@ -69,13 +70,13 @@ const Desenvolvedores = () => {
       <article className="group relative flex-1 w-full border-x-secondary-01 border-x-2">
         <article className="z-50 bg-dark-10 bg-(image:--bg-pattern) w-full group-hover:max-h-full group-hover:py-8 max-h-0 overflow-hidden flex items-center h-full duration-500 transition-all absolute">
           <div className="flex flex-col w-full items-center px-20 pt-10 gap-16">
-            <PerfilCase img={perfil} sizes="lg3" />
+            <PerfilCase img={perfilNicolasCase} sizes="lg3" />
             {/* <Image src={mstof} alt="mstof" className="bg-red-500 object-contain w-full h-full" /> */}
             <div className="flex flex-col gap-16 w-full">
               <div className="flex flex-col gap-4 w-full items-center">
                 <span className="w-full h-0.5 bg-secondary-01"></span>
                 <h1 className="text-h6 font-major-mono-display leading-8">
-                  NikOuLaS
+                  nicolas
                 </h1>
                 <span className="w-full h-0.5 bg-secondary-01"></span>
               </div>
@@ -113,7 +114,7 @@ const Desenvolvedores = () => {
           </div>
         </article>
         <Image
-          src={perfil}
+          src={perfilNicolasFull}
           alt="eu"
           className="w-full h-full object-cover z-60 isolate"
         />

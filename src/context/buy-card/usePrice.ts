@@ -1,13 +1,25 @@
 import { create } from "zustand";
 
+type CardType = {
+  id: number;
+    price: number;
+    nome: string;
+  }
+
 type usePriceType = {
-  price: number;
-  items: number;
-  setPrice: (value: number, qnt: number) => void;
+  card: {
+    id: number;
+    price: number;
+    nome: string;
+  }[]
+  setPrice: (obj:CardType) => void;
+  removePrice: (id:number) => void;
+  resetPrice: () => void;
 };
 
 export const usePrice = create<usePriceType>((set) => ({
-  price: 0,
-  items: 0,
-  setPrice: (value, qnt) => set((state) => ({ price: state.price + value, items: state.items + qnt })),
+  card:[],
+  setPrice: (obj) => set((state) => ({card:[...state.card, obj]})),
+  removePrice: (id) => set((state) => ({card:state.card.filter((obj) => {return obj.id !== id;})})),
+  resetPrice: () => set(() => ({card:[]}))
 }));

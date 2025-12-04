@@ -6,47 +6,50 @@ import { usePlan } from "@/context/buy-card/usePlan";
 import { Add, Small } from "@/components/icons";
 
 type WindowCardProps = {
-  title: string;
+  title: "bastidora" | "de abrir" | "de correr";
   price: number;
   img: string | StaticImport;
 };
 
 const WindowCard = ({ title, price, img }: WindowCardProps) => {
-  const { windows, plan, ...restPlan } = usePlan();
+  const { windows, plan } = usePlan();
   const [quantity, setQuantity] = useState(0);
-  const { setPrice, items, ...rest } = usePrice();
+  const { setPrice, removePrice, card } = usePrice();
+  const items = card.filter((obj) => obj.nome === title).length;
 
   const handleChange = (state: "increase" | "decrease") => {
+    const id = {bastidora: 0, "de abrir": 100, "de correr": 200};
     if (state === "increase") {
       setQuantity(quantity + 1);
 
-      if (plan && items < windows) {
-        console.log(items, windows, rest.price);
-        setPrice(0, 1);
+      if (plan && card.length-1 < windows) {
+        // console.log(items, windows, rest.price);
+        setPrice({price:0, id:items+id[title], nome:title});
         return;
       }
-
-      setPrice(plan ? price * (1 - 0.2) : price, 1);
+      if (plan) return setPrice({price:price * (1 - 0.2), id:items+id[title], nome:title});
+      setPrice({price:price, id:items+id[title], nome:title});
       return;
     }
+
 
     if (quantity <= 0) return;
 
     if (state === "decrease") {
       setQuantity(quantity - 1);
-
-      if (plan && items === 1 + windows) {
-        console.log(items, windows, rest.price);
-        setPrice(-rest.price + restPlan.price, -1);
+      if(quantity-1 === 0) removePrice(card.filter((obj) => obj.nome === title)[0].id);
+      if (plan && card.length-1 <= windows) {
+        const itemsFree = card.filter((obj) => obj.nome === title && obj.price === 0);
+        console.log("free item->",itemsFree);
+        
+        if(itemsFree.length === 0 && card.length-1) return removePrice(items+id[title]-1);
+        // if (!itemsFree[0]) return;
+        removePrice(itemsFree[0].id);
         return;
       }
+      // const item = 
+      removePrice(items+id[title]-1);
 
-      if (plan && items <= windows) {
-        console.log(items, windows, rest.price);
-        setPrice(0, -1);
-        return;
-      }
-      setPrice(plan ? -price * (1 - 0.2) : -price, -1);
       return;
     }
   };

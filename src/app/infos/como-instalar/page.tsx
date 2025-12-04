@@ -75,7 +75,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              Detalhes da intalação.
+              Detalhes da Instalação.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -88,7 +88,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              Sistema e componentes.
+              Sistema e Componentes.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -101,7 +101,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              Preparação e compatibilidade.
+              Preparação e Compatibilidade.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -114,7 +114,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              intalação.
+              instalação.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -127,7 +127,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              Sensor de chuva.
+              Sensor de Chuva.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -140,7 +140,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              Configuração inicial.
+              Configuração Inicial.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -153,7 +153,7 @@ const Index = () => {
               scroll={true}
               className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap"
             >
-              Testagem de automação.
+              Testagem de Automação.
             </Link>
           </li>
         </ul>
@@ -191,7 +191,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            detalhes da <br/> intalação
+            detalhes da <br /> intalação
           </h1>
           <div className="flex flex-col gap-6">
             <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
@@ -216,7 +216,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            sistema e <br/> componentes
+            sistema e <br /> componentes
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O sistema ROR é composto por um conjunto de hardware e software que
@@ -235,7 +235,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            preparação e <br/> compatibiliadeda janela
+            preparação e <br /> compatibiliadeda <br/> janela
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O sistema ROR foi projetado com flexibilidade para ser compatível
@@ -251,14 +251,15 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            instalação do <br/> produto
+            instalação do <br /> produto
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            O sistema ROR foi projetado com flexibilidade para ser compatível
-            com diversos modelos de janelas. Antes da instalação, é fundamental
-            verificar a estrutura da esquadria. A quantidade de motores a serem
-            instalados pode ser ajustada conforme a necessidade específica do
-            cliente e da estrutura de cada janela.
+            A instalação física dos motores adaptáveis é um componente-chave do
+            sistema Risk Of Rain (ROR), garantindo a integração eficaz do
+            mecanismo de automação com diferentes tipos de janelas existentes. A
+            principal característica é a flexibilidade, permitindo que os
+            motores se ajustem ao mecanismo específico de cada estrutura, seja
+            ela de correr, basculante ou pivotante.
           </p>
         </div>
 
@@ -267,7 +268,7 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            conexão do <br/> sensor de chuva
+            conexão do <br /> sensor de chuva
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O sensor de chuva deve ser instalado em um local estratégico, como o
@@ -284,12 +285,12 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            configurações <br/> inicial do App
+            configurações <br /> inicial do App
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             O sensor de chuva deve ser instalado em um local estratégico, como o
             telhado, onde possa detectar as primeiras gotas com rapidez. O sinal
-            captado pelo sensor é enviado ao controlador Arduino/ESP.A
+            captado pelo sensor é enviado ao controlador Arduino/ESP. A
             tecnologia Arduino permite uma integração precisa e programação
             personalizada entre os sensores e os motores, assegurando uma
             resposta rápida e confiável do sistema.
@@ -301,16 +302,15 @@ const Index = () => {
           className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
         >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-14 lowercase text-nowrap">
-            testagem de <br/> automação
+            testagem de <br /> automação
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
             A fase final envolve a validação da usabilidade e a testagem do
             sistema. É crucial garantir que o sistema interprete corretamente o
-            sinal de chuva e ative o motor para fechar a janela
-            automaticamente.O aplicativo oferece feedback visual imediato
-            através de animações e um módulo histórico que registra todas as
-            operações realizadas, permitindo ao usuário monitorar e confirmar a
-            eficácia da automação
+            sinal de chuva e ative o motor para fechar a janela automaticamente.
+            O aplicativo oferece feedback visual imediato por meio de animações
+            e um módulo histórico que registra todas as operações realizadas,
+            permitindo ao usuário monitorar e confirmar a eficácia da automação.
           </p>
         </div>
       </section>

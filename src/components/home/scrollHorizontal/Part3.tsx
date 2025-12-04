@@ -11,9 +11,10 @@ const Part1 = () => {
       duration: 1,
       scrollTrigger: {
         trigger: sectionThree.current,
-        start: "150% top",
-        end: "180% top",
+        start: "900vh top",
+        end: "1350vh top",
         scrub: true,
+        // markers:true
       }
     });
     return () => {
@@ -25,7 +26,7 @@ const Part1 = () => {
     <section
       ref={sectionThree}
       id="sec"
-      className="z-90 opacity-0 w-screen h-full flex justify-center items-end pr-70 flex-col gap-5  translate-x-20 bg-red-500/0"
+      className="bg-red-500/50 z-90 opacity-0 w-screen h-full flex justify-center items-end pr-70 flex-col gap-[4.5vh]  translate-x-20"
     >
       <div className=" w-8/12 h-fit flex flex-col-reverse items-end gap-1">
         <div className="flex items-end h-5 w-full justify-end ">

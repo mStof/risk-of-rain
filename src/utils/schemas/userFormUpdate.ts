@@ -12,7 +12,7 @@ export const userSchemaUpdate = z.object({
     .regex(
       /(\(?[1-9]{2}\)?\s?)?(9?){0,1}9?[0-9]{4}-?[0-9]{4}$/,
       "Telefone inválido"
-    ),
+    ).optional(),
   cpf: z
     .string()
     .min(14, "CPF é obrigatório")

@@ -30,20 +30,19 @@ const Index = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
     const currentProgress = (scrollProgress / heightSize) * 100;
-    
+
     setProgress(currentProgress < 0 ? 0 : currentProgress);
 
     if (!sectionInfos.current) return;
     const sections =
-      sectionInfos.current?.querySelectorAll(".section").length -1;
-      
-      const eachProgress = heightSize / sections;
-      const currentSection = Math.floor((Math.ceil(scrollProgress) / eachProgress));
+      sectionInfos.current?.querySelectorAll(".section").length - 1;
+
+    const eachProgress = heightSize / sections;
+    const currentSection = Math.floor(Math.ceil(scrollProgress) / eachProgress);
     const listItems = listRef.current?.querySelectorAll("li > div");
 
     listItems?.forEach((item) => item.setAttribute("data-progress", "false"));
-    for (let i = 0; i < currentSection+1; i++) {
-      
+    for (let i = 0; i < currentSection + 1; i++) {
       if (listItems) listItems[i].setAttribute("data-progress", "true");
     }
   };
@@ -79,8 +78,12 @@ const Index = () => {
               data-progress={true}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#knowApp"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
-              Conheça nosso app
+            <Link
+              href={"/infos/como-usar#knowApp"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
+              Conheça nosso app.
             </Link>
           </li>
           <li className="isolate flex gap-2 items-center">
@@ -88,7 +91,11 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#firtsNav"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link
+              href={"/infos/como-usar#firtsNav"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
               Navegação Principal.
             </Link>
           </li>
@@ -97,7 +104,11 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#gerencAmbien"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link
+              href={"/infos/como-usar#gerencAmbien"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
               Geraciamento do ambiente.
             </Link>
           </li>
@@ -106,7 +117,11 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#fastControl"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link
+              href={"/infos/como-usar#fastControl"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
               Controle rápido.
             </Link>
           </li>
@@ -115,7 +130,11 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#status"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link
+              href={"/infos/como-usar#status"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
               Status do dispositivo.
             </Link>
           </li>
@@ -124,7 +143,11 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#gerencPerfil"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link
+              href={"/infos/como-usar#gerencPerfil"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
               Configuração de perfil.
             </Link>
           </li>
@@ -133,7 +156,11 @@ const Index = () => {
               data-progress={false}
               className="size-2.5 rounded-full bg-secondary-10 data-[progress=true]:bg-secondary-01"
             ></div>
-            <Link href={"/infos/como-usar#histEvent"} scroll={true} className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light text-nowrap">
+            <Link
+              href={"/infos/como-usar#histEvent"}
+              scroll={true}
+              className="external text-secondary-10 font-chakra-petch -tracking-tighter leading-4 text-base font-light capitalize text-nowrap"
+            >
               Histórico de eventos.
             </Link>
           </li>
@@ -141,7 +168,6 @@ const Index = () => {
       </article>
       {/* Just to fill the space */}
       <div className="opacity-0 w-max-80 w-max h-full pl-8 pr-20 flex -z-40">
-        
         <ul className="my-auto flex flex-col gap-8 list-disc ml-4">
           <li className="isolate flex gap-2 items-center">
             Navegação Principal.
@@ -168,7 +194,10 @@ const Index = () => {
         ref={sectionInfos}
         className="flex flex-col items-center w-full h-fit snap-y snap-mandatory "
       >
-        <div id="knowApp" className="snap-center section flex justify-center gap-20 flex-col ml-64 w-min h-screen">
+        <div
+          id="knowApp"
+          className="snap-center section flex justify-center gap-20 flex-col ml-64 w-min h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             conheça nosso app
           </h1>
@@ -190,7 +219,10 @@ const Index = () => {
           </div>
         </div>
 
-        <div id="firtsNav" className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen">
+        <div
+          id="firtsNav"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 max-w-[37.75rem] w-min h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             navegação principal
           </h1>
@@ -205,7 +237,10 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="gerencAmbien" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+        <div
+          id="gerencAmbien"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             gerenciamento do <br /> ambiente
           </h1>
@@ -220,22 +255,27 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="fastControl" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+        <div
+          id="fastControl"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             controle rapido
           </h1>
           <p className="font-chakra-petch text-base font-light -tracking-tighter leading-normal text-secondary-10 w-full">
-            Na parte superior da tela principal, você encontra comandos rápidos
-            que oferecem controle imediato sobre o seu sistema. Com um único
-            toque, é possível verificar a conexão Wi-Fi, fechar todas as janelas
-            de uma vez para maior segurança e consultar a temperatura e a
-            umidade do ambiente. Essa funcionalidade foi pensada para situações
-            de urgência e para fornecer informações essenciais de forma prática
-            e instantânea.
+            A seção principal do aplicativo exibe de forma clara e objetiva o
+            status de cada janela. Cada cartão na lista representa um
+            dispositivo, mostrando uma imagem do cômodo e o nome da janela (por
+            exemplo: “Janela do quarto”). A chave seletora ao lado do nome
+            permite abrir ou fechar a janela com um simples toque, dando a você
+            total controle manual.
           </p>
         </div>
 
-        <div id="status" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+        <div
+          id="status"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             status dos <br /> dispositivos
           </h1>
@@ -249,7 +289,10 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="gerencPerfil" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+        <div
+          id="gerencPerfil"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             gerenciamento de <br />
             perfil
@@ -265,7 +308,10 @@ const Index = () => {
           </p>
         </div>
 
-        <div id="histEvent" className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen">
+        <div
+          id="histEvent"
+          className="snap-center section flex justify-center gap-16 flex-col ml-64 w-[37.75rem] wmin h-screen"
+        >
           <h1 className="font-major-mono-display text-h4 text-secondary-10 leading-12 lowercase text-nowrap">
             historico de eventos
           </h1>

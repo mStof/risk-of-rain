@@ -12,10 +12,10 @@ const Part4 = () => {
 
       </div>
 
-      <h2 className="font-heading text-h6 leading-8 w-fit z-20">
+      {/* <h2 className="font-heading text-h6 leading-8 w-fit z-20">
         Clique na casa <br />
         para começar.
-      </h2>
+      </h2> */}
     </section>
   );
 };

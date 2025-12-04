@@ -4,12 +4,17 @@ import Form from "@/components/login/Form";
 import Link from "@/components/Link";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/services/database/FirebaseConfig";
 
 const Login = () => {
+  const [user] = useAuthState(auth);
+
   useEffect(() => {
     const hasUser = sessionStorage.getItem("logged");
-    if (hasUser) redirect("/user/perfil");
-  }, []);
+    if (hasUser === "true") return redirect("/user/perfil");
+    if (user) return redirect("/user/perfil");
+  }, [user]);
 
   return (
     <main className="bg-(image:--bg-pattern) bg-dark-10 text-secondary-10 flex justify-center items-center h-svh w-full">

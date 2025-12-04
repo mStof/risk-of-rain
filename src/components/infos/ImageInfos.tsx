@@ -46,7 +46,7 @@ const ImageInfos = ({ progress, imgs }: { progress: number, imgs:StaticImageData
   return (
     <div
       ref={imageContainerRef}
-      className="fixed w-3/12 h-10/12 inset-0 translate-x-72 self-center"
+      className="fixed w-3/12 h-10/12 inset-0 translate-x-80 self-center"
     >
       <Image
         src={imgs[currentImg]}
