@@ -1,6 +1,6 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollHorizontal from "@/components/home/scrollHorizontal";
@@ -11,6 +11,7 @@ import Animation3D from "@/components/home/animation3D";
 import Image from "next/image";
 import motor from "@/../public/img/home/motor.png";
 import casa from "@/../public/img/home/casa.png";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -43,6 +44,17 @@ export default function Home() {
       x: "-75vw"
     });
   });
+
+  useEffect(() => {
+    sendGTMEvent({
+      event: "page_view",
+      page_location: window.location.href,
+      client_id: "ABC",
+      language: navigator.language,
+      page_encoding: document.characterSet,
+      page_title: document.title,
+    });
+  }, []);
 
   return (
     <main
