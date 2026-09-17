@@ -11,7 +11,7 @@ import Animation3D from "@/components/home/animation3D";
 import Image from "next/image";
 import motor from "@/../public/img/home/motor.png";
 import casa from "@/../public/img/home/casa.png";
-import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
