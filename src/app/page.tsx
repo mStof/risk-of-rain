@@ -11,7 +11,7 @@ import Animation3D from "@/components/home/animation3D";
 import Image from "next/image";
 import motor from "@/../public/img/home/motor.png";
 import casa from "@/../public/img/home/casa.png";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent } from "@next/third-parties/google";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -46,7 +46,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    sendGTMEvent({
+    sendGAEvent({
       event: "page_view",
       page_location: window.location.href,
       client_id: "ABC",
