@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from "next";
 import { Chakra_Petch, Major_Mono_Display } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 
@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" data-scroll-behavior="smooth">
-      <GoogleAnalytics gaId={googleTagId}  />
+      <GoogleTagManager gtmId={googleTagId}  />
       <body
         data-scroll-behavior="smooth"
         className={`${chakraPetch.variable} ${majorMonoDisplay.variable} antialiased **:cursor-none scroll-smooth 
