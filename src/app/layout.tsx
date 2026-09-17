@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from "next";
 import { Chakra_Petch, Major_Mono_Display } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
+
 
 import Transition from "@/components/transition";
 import { Mouse } from "@/components/Mouse";
@@ -47,7 +49,9 @@ export default function RootLayout({
   [&::-webkit-scrollbar-thumb]:border
   `}
       >
+
         <Mouse />
+      <script type="text/javascript" charSet="UTF-8" src="//cdn.cookie-script.com/s/b307311af8258c05bc4f7458c080e9c0.js"></script>
         {/* <Enter> */}
         <Transition>
           <BuyCardContainer />
