@@ -13,13 +13,18 @@ const InfoSec = () => {
   const windows = card.filter((obj) => obj.id !== 1001);
   const { address, payment } = useFormContext();
 
+  const {purchaseEvent} = useGTM()
+
   const preco = card.reduce((soma, obj) => {
     return soma + Number(obj.price.toFixed(2));
   }, 0);
   console.log("windows", address, payment);
 
   const handleConfirm = () => {
+
+
     if (address.cep && payment.cardNumber) {
+      purchaseEvent(preco, plan, card);
       window.alert(
         "Parabens por colocar seus dados sensíveis em um projeto de TCC, muito obrigado pela atenção e ainda mais pelo cartão <3 \nPor: Risk Of Rain equipe"
       );
