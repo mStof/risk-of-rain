@@ -1,17 +1,13 @@
 import { create } from "zustand";
 
-type CardType = {
+export type CardType = {
   id: number;
     price: number;
     nome: string;
   }
 
 type usePriceType = {
-  card: {
-    id: number;
-    price: number;
-    nome: string;
-  }[]
+  card: CardType[]
   setPrice: (obj:CardType) => void;
   removePrice: (id:number) => void;
   resetPrice: () => void;

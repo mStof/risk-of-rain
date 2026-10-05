@@ -3,6 +3,7 @@ import { useFormContext } from "@/context/buy-card/useFormContext";
 import { useNavigation } from "@/context/buy-card/useNavigation";
 import { usePlan } from "@/context/buy-card/usePlan";
 import { usePrice } from "@/context/buy-card/usePrice";
+import { useGTM } from "@/services/GTM/useGTM";
 import React, { useState } from "react";
 
 const InfoSec = () => {
@@ -13,7 +14,7 @@ const InfoSec = () => {
   const windows = card.filter((obj) => obj.id !== 1001);
   const { address, payment } = useFormContext();
 
-  const {purchaseEvent} = useGTM()
+  const {purchaseEvent} = useGTM();
 
   const preco = card.reduce((soma, obj) => {
     return soma + Number(obj.price.toFixed(2));
@@ -24,7 +25,7 @@ const InfoSec = () => {
 
 
     if (address.cep && payment.cardNumber) {
-      purchaseEvent(preco, plan, card);
+      purchaseEvent(Number(preco.toFixed(2)), plan, card);
       window.alert(
         "Parabens por colocar seus dados sensíveis em um projeto de TCC, muito obrigado pela atenção e ainda mais pelo cartão <3 \nPor: Risk Of Rain equipe"
       );

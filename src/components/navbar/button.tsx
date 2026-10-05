@@ -1,5 +1,5 @@
 import { useMouse } from "@/context/useMouse";
-import { useGA } from "@/functions/ga4";
+import { useGTM } from "@/services/GTM/useGTM";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {
@@ -22,7 +22,7 @@ type ButtonNavType = {
 const ButtonNav = ({ setIsOpen, isOpen }: ButtonNavType) => {
   const { contextSafe } = useGSAP();
   const { setSelected } = useMouse();
-  const { selectContentGA } = useGA();
+  const { selectContentGTM } = useGTM();
 
   const handleMouseEnter = useCallback(() => { setSelected(true);}, []);
   const handleMouseExit = useCallback(() => { setSelected(false); }, []);
@@ -96,7 +96,7 @@ const ButtonNav = ({ setIsOpen, isOpen }: ButtonNavType) => {
         duration: 0.15
       });
     }
-    selectContentGA(e);
+    selectContentGTM(e);
 
   });
   return (
