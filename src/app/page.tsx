@@ -11,7 +11,7 @@ import Animation3D from "@/components/home/animation3D";
 import Image from "next/image";
 import motor from "@/../public/img/home/motor.png";
 import casa from "@/../public/img/home/casa.png";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { useGA } from "@/functions/ga4";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -19,7 +19,7 @@ export default function Home() {
   const containerRef = useRef<HTMLElement>(null);
   const cameraRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-
+  const { pageViewGA } = useGA();
   useGSAP(() => {
     const cameraTL = gsap.timeline({
       scrollTrigger: {
@@ -46,16 +46,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    sendGTMEvent({
-      event: "page_view",
-      value: {
-        page_location: window.location.href,
-        client_id: "ABC",
-        language: navigator.language,
-        page_encoding: document.characterSet,
-        page_title: document.title,
-      }
-    });
+    pageViewGA();
   }, []);
 
   return (

@@ -1,9 +1,11 @@
 import { useMouse } from "@/context/useMouse";
+import { useGA } from "@/functions/ga4";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {
   Dispatch,
   memo,
+  MouseEvent,
   SetStateAction,
   useCallback,
   useEffect,
@@ -20,12 +22,11 @@ type ButtonNavType = {
 const ButtonNav = ({ setIsOpen, isOpen }: ButtonNavType) => {
   const { contextSafe } = useGSAP();
   const { setSelected } = useMouse();
-  const handleMouseEnter = useCallback(() => {
-    setSelected(true);
-  }, []);
-  const handleMouseExit = useCallback(() => {
-    setSelected(false);
-  }, []);
+  const { selectContentGA } = useGA();
+
+  const handleMouseEnter = useCallback(() => { setSelected(true);}, []);
+  const handleMouseExit = useCallback(() => { setSelected(false); }, []);
+
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
 
@@ -51,7 +52,7 @@ const ButtonNav = ({ setIsOpen, isOpen }: ButtonNavType) => {
     });
   }, []);
 
-  const handleOpenNav = contextSafe(() => {
+  const handleOpenNav = contextSafe((e:MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     if (isOpen) {
       setIsOpen(false);
       gsap.to(line1Ref.current, {
@@ -95,10 +96,13 @@ const ButtonNav = ({ setIsOpen, isOpen }: ButtonNavType) => {
         duration: 0.15
       });
     }
+    selectContentGA(e);
+
   });
   return (
     <button
-      onClick={handleOpenNav}
+      role="nav"
+      onClick={(e) => handleOpenNav(e)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseExit}
       className="bg-dark-09 size-10 fixed inset-full translate-[calc(-100%_-_2rem)] z-70 flex flex-col justify-center gap-1.5 p-2 outline-2 -outline-offset-4 outline-secondary-01"
